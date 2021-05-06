@@ -1,5 +1,5 @@
 <?php
-	include_once "../info.php";
+	include_once "../a.php";
 ?>
 <!DOCTYPE html>
 <html lang="en" >
@@ -28,7 +28,7 @@
 		</nav>
 	</header>
 
-  <script  src="../javascript/includes/navigation.js"></script>
+  <script  src="../js/includes/navigation.js"></script>
 
 </body>
 </html>

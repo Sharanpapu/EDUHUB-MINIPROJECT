@@ -132,7 +132,7 @@ nav button span {
 	height: 100%;
 	z-index: -1;
 
-	/*javascript used for animation-name setting*/
+	/*js used for animation-name setting*/
 	animation-duration: 0.5s;
 	animation-fill-mode: forwards;
 }
