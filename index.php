@@ -10,7 +10,7 @@
 <!-- partial:index.partial.html -->
 <div class="hero-section">	
 		<div class="about-text hover-target">About</div>
-		<div class="contact-text hover-target">Login</div>
+		<div class="contact-text hover-target">Click Me!!!</div>
 		<div class="section-center">
 			<div class="container-fluid">
 				<div class="row justify-content-center">
@@ -57,7 +57,7 @@
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-12 text-center">
-						<a href="#" class="hover-target">Login | Signup</a>
+						<a href="./login.php" class="hover-target">Login</a> |  <a href="./signup.php" class="hover-target"> Signup</a>
 					</div>
 					<div class="col-12 text-center social mt-4">
 						<a href="#" class="hover-target">Youtube</a>
