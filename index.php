@@ -41,7 +41,8 @@
 						<img src="images/logo.png" alt="">
 					</div>
 					<div class="col-lg-8 text-center mt-4">
-						<p>We Make What you Imagine and Work Beyond That </p>
+						<p>We Make What you Imagine and Work Beyond That </p><br>
+						<h2><a href="about.php">Click me now, Thank me Later</a></h2>
 					</div>
 					<div class="col-12 text-center">
 						<p><span>Eduhub</span></p>
