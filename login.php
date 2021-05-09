@@ -24,8 +24,11 @@
   $count = mysqli_num_rows($result);  
     
   if($count == 1){  
-      echo "<h1><center> Login successful </center></h1>";  
-      $sql2="UPDATE user SET last_seen=current_timestamp() where email='$email'";
+      echo "<h1><center> Login successful </center></h1>";
+      session_start();
+      $_SESSION["email"] = "$email";
+      $_SESSION['password']="$password";
+      $sql2="UPDATE user SET status='1' where email='$email'";
       mysqli_query($conn,$sql2);
       $showAlert = true;
   }  
