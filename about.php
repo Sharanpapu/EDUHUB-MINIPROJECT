@@ -11,6 +11,11 @@
 </head>
 <body>
 <!-- partial:index.partial.html -->
+<div id="header"></div>
+
+
+
+
 <section class="section section--intro">
     <img class="hero__image" src="https://images.unsplash.com/photo-1557551220-4e0e9f87ff36?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bG9nb3xlbnwwfDJ8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="" />
 
@@ -70,13 +75,22 @@
     <a href="https://github.com/ismamz" class="footer__button" data-cursor="hover" target="_blank" rel="noopener noreferer">Follow us on Github</a>
     <a href="https://linkedin.com/ismamz" class="footer__button" data-cursor="hover" target="_blank" rel="noopener noreferer">Follow us on Linkedin</a>
 </div>
-<a href="index.php" class="footer__button" data-cursor="hover" target="_blank" rel="noopener noreferer">Get Back to Home</a>
+<a href="index.php" class="footer__button" data-cursor="hover" rel="noopener noreferer">Get Back to Home</a>
 
   </section>
 
   <div class="cursor"></div>
+  <div id="footer"></div>
+
 <!-- partial -->
 <script  src="js/about.js"></script>
+<script>
+        $(function(){
+    $("#header").load("includes/navigation.html"); 
+    $("#footer").load("includes/footer.html");
+    }); 
+    </script>   
+
 
 </body>
 </html>
