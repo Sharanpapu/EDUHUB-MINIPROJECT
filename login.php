@@ -1,6 +1,43 @@
 <?php
-	include_once("a.php");
-?>
+	require_once "a.php";
+  $showAlert = false; 
+  $showError = false; 
+  $exists=false;
+
+  if($_SERVER["REQUEST_METHOD"] == "POST") {    
+  require "database/connect.php";
+
+  $email = $_POST["email"]; 
+  $password = $_POST["password"]; 
+
+  $sql = "Select * from user where email='$email'";
+  $result = mysqli_query($conn, $sql);
+    
+  $num = mysqli_num_rows($result);
+  //to prevent from mysqli injection  
+  $email = mysqli_real_escape_string($conn, $email);  
+  $password = mysqli_real_escape_string($conn, $password);  
+
+  $sql = "SELECT * from user where email = '$email' and password = '$password'";  
+  $result = mysqli_query($conn, $sql);  
+  $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
+  $count = mysqli_num_rows($result);  
+    
+  if($count == 1){  
+      echo "<h1><center> Login successful </center></h1>";  
+      $showAlert = true;
+  }  
+  else{  
+    $showError = "Passwords or Username is Incorrect"; 
+  }   
+  if($num==0)
+{
+	$exists="email not available";
+}  
+}
+?>  
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,16 +45,58 @@
 
     </head>
 <body>
+<?php if($showAlert) {
+	
+  echo ' <div class="alert alert-success
+    alert-dismissible fade show" role="alert">
+
+    <strong>Success!</strong> Your account is
+    now created and you can login.
+    <button type="button" class="close"
+      data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div> ';
+  header("Location: home.php");
+  
+}
+if($showError) {
+	
+  echo ' <div class="alert alert-danger
+    alert-dismissible fade show" role="alert">
+  <strong>Error!</strong> '. $showError.'
+
+<button type="button" class="close"
+    data-dismiss="alert aria-label="Close">
+    <span aria-hidden="true">×</span>
+</button>
+</div> ';
+}
+  
+if($exists) {
+  echo ' <div class="alert alert-danger
+    alert-dismissible fade show" role="alert">
+
+  <strong>Error!</strong> '. $exists.'
+  <button type="button" class="close"
+    data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">×</span>
+  </button>
+</div> ';
+}
+
+
+?>
 <!-- partial:index.partial.html -->
-<form>
-  <input id="input-1" type="email" placeholder="Enter your Email!" required autofocus />
-  <label for="input-1">
+<form method="POST" action="login.php">
+  <input id="email" name="email" type="email" placeholder="Enter your Email!" required autofocus />
+  <label for="email">
     <span class="label-text">Email</span>
     <span class="nav-dot"></span>
     <div class="signup-button-trigger">Login</div>
   </label>
-  <input id="input-2" type="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required />
-  <label for="input-2">
+  <input id="password" name="password" type="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required />
+  <label for="password">
     <span class="label-text">Password</span>
     <span class="nav-dot"></span>
   </label>
@@ -26,7 +105,10 @@
   <div class="signup-button">Login</div>
 </form>
 <!-- partial -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"crossorigin="anonymous"></script> 
 
 </body>
-
 </html>
