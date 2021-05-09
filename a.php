@@ -1,3 +1,8 @@
+<?php
+    include_once "connect.php";
+    $connect = new PDO("mysql:host=localhost;dbname=eduhub-sairam", "root", "root");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
