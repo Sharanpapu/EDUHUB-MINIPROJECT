@@ -24,7 +24,7 @@
   $email = $_POST["email"]; 
   $password = $_POST["password"]; 
 
-  $sql = "Select * from user where email='$email'";
+  $sql = "SELECT * from user where email='$email'";
   $result = mysqli_query($conn, $sql);
     
   $num = mysqli_num_rows($result);

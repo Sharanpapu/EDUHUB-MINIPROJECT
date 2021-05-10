@@ -6,7 +6,12 @@
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
 			$title=$row["title"];
-		}	
+		}
+        if(!(isset($_SESSION['email'])))
+    {
+     header('location:login.php');
+    }
+	
 
 ?>
 <!DOCTYPE html>
