@@ -3,28 +3,41 @@
 	$email=$_SESSION['email'];
 
     	//For Retrieval of Page data
-
-		if(isset($_POST['btnupdate']))
+	//for profile updation
+		if(isset($_POST['profileupdate']))
 	{
 
-		$up="UPDATE `user` set first_name='" . $_POST['first_name'] . "',last_name='" . $_POST['last_name']."',mobile='" . $_POST['mobile'] . "',dob='" . $_POST['dob'] . "',city='" . $_POST['city'] . "',dept='" . $_POST['dept'] . "',institution='" . $_POST['institution'] . "',title='" . $_POST['title'] . "',bio='" . $_POST['bio'] . "'  WHERE email='$email'";
+		$pup="UPDATE `user` set first_name='" . $_POST['first_name'] . "',last_name='" . $_POST['last_name']."',mobile='" . $_POST['mobile'] . "',dob='" . $_POST['dob'] . "',city='" . $_POST['city'] . "',dept='" . $_POST['dept'] . "',institution='" . $_POST['institution'] . "',title='" . $_POST['title'] . "',bio='" . $_POST['bio'] . "'  WHERE email='$email'";
 		if ($conn->query($up) === TRUE) {
+			echo "Record updated successfully";
+		  } else {
+			echo "Error updating record: " . $conn->error;
+		  }}
+	//for password updation
+	if(isset($_POST['passwordupdate']))
+	{
+
+		$paup="UPDATE `user` set password='" . $_POST['npassword'] . "',recovery='" . $_POST['recovery'] . "' WHERE email='$email'";
+		if ($conn->query($paup) === TRUE) {
 			echo "Record updated successfully";
 		  } else {
 			echo "Error updating record: " . $conn->error;
 		  }
 
 	}
+	//pagedata fetching
 	$sql = "SELECT * from page where id='5'";
 	$result = $conn->query($sql);
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
 			$title=$row["title"];
 		}
+	//logged in or not checking
 		if(!(isset($_SESSION['email'])))
 		{
 		 header('location:login.php');
 		}
+	//userdata fetching 
 	$query="SELECT * FROM `user` where email='$email'";
 	$userdata=$conn->query($query);
 	$out=$userdata->fetch_assoc()
@@ -68,28 +81,30 @@
 							Profile
 							
 						</a>
-						  <a class="nav-link" id="skills-tab" data-toggle="pill" href="#skills" role="tab" aria-controls="skills" aria-selected="false">
-							<i class="fa fa-key text-center mr-1"></i> 
-							skills
-						</a>
-						<a class="nav-link" id="certification-tab" data-toggle="pill" href="#certification" role="tab" aria-controls="certification" aria-selected="false">
-							<i class="fa fa-key text-center mr-1"></i> 
-							certifications
-						</a>
-						<a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
-							<i class="fa fa-key text-center mr-1"></i> 
-							Conference
-						</a>
-						<a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
-							<i class="fa fa-key text-center mr-1"></i> 
-						Projects
-						</a>
-
-
 						<a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
 							<i class="fa fa-key text-center mr-1"></i> 
 							Privacy and Security
 						</a>
+
+						  <a class="nav-link" id="skills-tab" data-toggle="pill" href="#skills" role="tab" aria-controls="skills" aria-selected="false">
+						  <i class="fa fa-certificate" aria-hidden="true"></i>
+						  							skills
+						</a>
+						<a class="nav-link" id="certification-tab" data-toggle="pill" href="#certification" role="tab" aria-controls="certification" aria-selected="false">
+						<i class="fa fa-graduation-cap" aria-hidden="true"></i>
+													certifications
+						</a>
+						<a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
+						<i class="fa fa-briefcase" aria-hidden="true"></i>
+												Projects
+						</a>
+
+						<a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
+						<i class="fa fa-bookmark" aria-hidden="true"></i>
+												Accomplishments 
+						</a>
+
+
 					
 						<a class="nav-link" id="application-tab" data-toggle="pill" href="#application" role="tab" aria-controls="application" aria-selected="false">
 							<i class="fa fa-adjust text-center mr-1"></i> 
@@ -100,12 +115,12 @@
 							Notification
 						</a>
                         <a class="nav-link" id="notification-tab" data-toggle="pill" href="#notification" role="tab" aria-controls="notification" aria-selected="false">
-							<i class=" fa fa-book"></i>
+							<i class=" fa fa-play"></i>
 							Current Project
 						</a>
 						<a class="nav-link" id="notification-tab" data-toggle="pill" href="#notification" role="tab" aria-controls="notification" aria-selected="false">
-							<i class=" fa fa-comments-o"></i>
-							Communication
+						<i class="fa fa-address-book" aria-hidden="true"></i>
+													Communication
 						</a>
 						<a class="nav-link" id="notification-tab" data-toggle="pill" href="#notification" role="tab" aria-controls="notification" aria-selected="false">
 							<i class=" fa fa-bullhorn"></i>
@@ -114,9 +129,10 @@
 						</a>
 					</div>
 				</div>
-<!----Profile Section--->
 			<form  method="POST" action="settings.php">
 			<div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+			<!----Profile Section--->
+
 					<div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
 						<h3 class="mb-4">Profile</h3>
 						<div class="row">
@@ -203,17 +219,18 @@
 							</div>
 						</div>
 						<div>
-							<button class="btn btn-primary" name="btnupdate">Update</button>
+							<button class="btn btn-primary" name="profileupdate">Update</button>
 							<button class="btn btn-light">Cancel</button>
 						</div>
 					</div>
+			<!----------Password Section------------>
 					<div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
 						<h3 class="mb-4">Password Settings</h3>
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>Old password</label>
-								  	<input type="password" class="form-control">
+								  	<input type="password" name="password" class="form-control" value="<?php echo $out['password'];?>">
 								</div>
 							</div>
 						</div>
@@ -221,52 +238,39 @@
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>New password</label>
-								  	<input type="password" class="form-control">
+								  	<input type="password" name="npassword" class="form-control">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>Confirm new password</label>
-								  	<input type="password" class="form-control">
-								</div>
-							</div>
-						</div>
-						<div>
-							<button class="btn btn-primary">Update</button>
-							<button class="btn btn-light">Cancel</button>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
-						<h3 class="mb-4">Security Settings</h3>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Login</label>
-								  	<input type="text" class="form-control">
+								  	<input type="password" name="namepassword" class="form-control">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-								  	<label>Two-factor auth</label>
-								  	<input type="text" class="form-control">
+								  	<label>Recovery</label>
+								  	<input type="text" class="form-control" name="recovery" value="<?php echo $out['recovery'];?>">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="recovery">
-										<label class="form-check-label" for="recovery">
-										Recovery
+										<input class="form-check-input" type="checkbox" name="two-fact-auth" value="<?php echo $out['two-fact-auth'];?>" id="recovery">
+										<label class="form-check-label" for="two-fact-auth">
+										Two Factor Authentication
 										</label>
 									</div>
 								</div>
 							</div>
+
 						</div>
-						<div>
-							<button class="btn btn-primary" name="btn-update">Update</button>
+
+							<button class="btn btn-primary" name="passwordupdate">Update</button>
 							<button class="btn btn-light">Cancel</button>
 						</div>
 					</div>
+			<!-----------------Theme section---------------------->
 					<div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application-tab">
 						<h3 class="mb-4">Theme and Display</h3>
 						<div class="row">
@@ -292,6 +296,7 @@
 							<button class="btn btn-light">Cancel</button>
 						</div>
 					</div>
+			<!-----------------Notification Settings-------------->
 					<div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
 						<h3 class="mb-4">Email notification preferences</h3>
 						<div class="form-group">
@@ -323,6 +328,9 @@
 							<button class="btn btn-light">Cancel</button>
 						</div>
 					</div>
+
+
+
 				</div>
 			</form>
 
