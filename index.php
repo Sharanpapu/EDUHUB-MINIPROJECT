@@ -1,10 +1,19 @@
 <?php
-	include_once("a.php");
+	require_once "a.php";
+	//For Retrieval of Page data
+	$sql = "SELECT * from page where id='1'";
+	$result = $conn->query($sql);
+		// output data of each row
+		while($row = $result->fetch_assoc()) {
+			$title=$row["title"];
+		}	
+  
 ?>
 <!DOCTYPE html>
 <html lang="en" >
 <head>
   <link rel="stylesheet" href="./css/index.css">
+  <title><?php echo "$title";?></title>
 </head>
 <body>
 <!-- partial:index.partial.html -->

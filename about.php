@@ -1,11 +1,19 @@
 <?php
     include_once "a.php";
+    	//For Retrieval of Page data
+	$sql = "SELECT * from page where id='6'";
+	$result = $conn->query($sql);
+		// output data of each row
+		while($row = $result->fetch_assoc()) {
+			$title=$row["title"];
+		}	
+
 ?>
 <!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>About US</title>
+  <title><?php echo "$title";?></title>
 <link rel="stylesheet" href="css/about.css">
 
 </head>
@@ -75,7 +83,7 @@
     <a href="https://github.com/ismamz" class="footer__button" data-cursor="hover" target="_blank" rel="noopener noreferer">Follow us on Github</a>
     <a href="https://linkedin.com/ismamz" class="footer__button" data-cursor="hover" target="_blank" rel="noopener noreferer">Follow us on Linkedin</a>
 </div>
-<a href="index.php" class="footer__button" data-cursor="hover" rel="noopener noreferer">Get Back to Home</a>
+<a href="home.php" class="footer__button" data-cursor="hover" rel="noopener noreferer">Get Back to Home</a>
 
   </section>
 

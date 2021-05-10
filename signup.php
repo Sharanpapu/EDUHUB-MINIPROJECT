@@ -1,5 +1,17 @@
 <?php
 	require_once "a.php";
+  	//For Retrieval of Page data
+	$sql = "SELECT * from page where id='8'";
+	$result = $conn->query($sql);
+		// output data of each row
+		while($row = $result->fetch_assoc()) {
+			$title=$row["title"];
+		}	
+    // Checking whether logged in
+    if(isset($_SESSION['email']))
+    {
+     header('location:home.php');
+    }
 $showAlert = false; 
 $showError = false; 
 $exists=false;
@@ -51,7 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
     <head>
     <link rel="stylesheet" href="css/signup.css">
-
+    <title><?php echo "$title";?></title>
     </head>
 <body>
 <?php
@@ -68,7 +80,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 				<span aria-hidden="true">×</span>
 			</button>
 		</div> ';
-    header("Location: home.php");
+    header("Location:login.php");
     
 	}
 	

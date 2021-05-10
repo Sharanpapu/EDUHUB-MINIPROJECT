@@ -1,5 +1,19 @@
 <?php
 	require_once "a.php";
+  	//For Retrieval of Page data
+	$sql = "SELECT * from page where id='7'";
+	$result = $conn->query($sql);
+		// output data of each row
+		while($row = $result->fetch_assoc()) {
+			$title=$row["title"];
+		}	
+    if(isset($_SESSION['email']))
+    {
+     header('location:home.php');
+    }
+       
+
+
   $showAlert = false; 
   $showError = false; 
   $exists=false;
@@ -25,9 +39,8 @@
     
   if($count == 1){  
       echo "<h1><center> Login successful </center></h1>";
-      session_start();
       $_SESSION["email"] = "$email";
-      $_SESSION['password']="$password";
+      $_SESSION["password"]="$password";
       $sql2="UPDATE user SET status='1' where email='$email'";
       mysqli_query($conn,$sql2);
       $showAlert = true;
@@ -47,10 +60,11 @@
 <html lang="en">
     <head>
     <link rel="stylesheet" href="css/login.css">
-
+    <title><?php echo "$title";?></title>
     </head>
 <body>
-<?php if($showAlert) {
+<?php 
+if($showAlert) {
 	
   echo ' <div class="alert alert-success
     alert-dismissible fade show" role="alert">
@@ -94,13 +108,13 @@ if($exists) {
 ?>
 <!-- partial:index.partial.html -->
 <form method="POST" action="login.php">
-  <input id="email" name="email" type="email" placeholder="Enter your Email!" required autofocus />
+  <input id="email" name="email" type="email" placeholder="Enter your Email!" autofill=on required autofocus />
   <label for="email">
     <span class="label-text">Email</span>
     <span class="nav-dot"></span>
     <div class="signup-button-trigger">Login</div>
   </label>
-  <input id="password" name="password" type="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required />
+  <input id="password" name="password" type="password" autofill=on placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required />
   <label for="password">
     <span class="label-text">Password</span>
     <span class="nav-dot"></span>

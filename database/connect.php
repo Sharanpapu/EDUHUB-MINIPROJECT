@@ -5,6 +5,7 @@
   $db_name='eduhub-sairam';
   $db_db = 'information_schema';
   $db_port = 8889;
+  session_start();
 
   $mysqli = new mysqli(
     $db_host,
@@ -20,14 +21,9 @@
     exit();
   }
 
-  echo 'Success: A proper connection to MySQL was made.';
-  echo '<br>';
-  echo 'Host information: '.$mysqli->host_info;
-  echo '<br>';
-  echo 'Protocol version: '.$mysqli->protocol_version;
   $conn = mysqli_connect($db_host, $db_user, $db_password, $db_name);
   if($conn) {
-    echo "success"; 
+    //echo "success"; 
 } 
 else {
     die("Error". mysqli_connect_error()); 
