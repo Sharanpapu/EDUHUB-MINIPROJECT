@@ -1,11 +1,12 @@
 <?php
+  session_start();
+
   $db_host = 'localhost';
   $db_user = 'root';
   $db_password = 'root';
   $db_name='eduhub-sairam';
   $db_db = 'information_schema';
   $db_port = 8889;
-  session_start();
 
   $mysqli = new mysqli(
     $db_host,

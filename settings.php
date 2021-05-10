@@ -1,6 +1,20 @@
 <?php
-    include_once "a.php";
+    require "a.php";
+	$email=$_SESSION['email'];
+
     	//For Retrieval of Page data
+
+		if(isset($_POST['btnupdate']))
+	{
+
+		$up="UPDATE `user` set first_name='" . $_POST['first_name'] . "',last_name='" . $_POST['last_name']."',mobile='" . $_POST['mobile'] . "',dob='" . $_POST['dob'] . "',city='" . $_POST['city'] . "',dept='" . $_POST['dept'] . "',institution='" . $_POST['institution'] . "',title='" . $_POST['title'] . "',bio='" . $_POST['bio'] . "'  WHERE email='$email'";
+		if ($conn->query($up) === TRUE) {
+			echo "Record updated successfully";
+		  } else {
+			echo "Error updating record: " . $conn->error;
+		  }
+
+	}
 	$sql = "SELECT * from page where id='5'";
 	$result = $conn->query($sql);
 		// output data of each row
@@ -11,7 +25,12 @@
 		{
 		 header('location:login.php');
 		}
-		
+	$query="SELECT * FROM `user` where email='$email'";
+	$userdata=$conn->query($query);
+	$out=$userdata->fetch_assoc()
+    
+
+	
 
 ?>
 <!DOCTYPE html>
@@ -20,13 +39,10 @@
 	<meta charset="UTF-8">
 	<title><?php echo "$title";?></title>
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/settings.css">
 	<link rel="stylesheet" type="text/scss" href="css/settings.scss">
 
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 
 
@@ -43,7 +59,7 @@
 						<div class="img-circle text-center mb-3">
 							<img src=".jpg" alt="Image" class="shadow">
 						</div>
-						<h4 class="text-center">your name</h4>
+						<h4 class="text-center"></h4><?php echo $out['first_name'];?></h4>
 					</div>
 					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 						<a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
@@ -52,33 +68,29 @@
 							Profile
 							
 						</a>
-						<div class="dropdown" style="left: 320px; ">
-							<button class="btn" style="border-left:1px solid white">
-								<i class="fa fa-caret-down"></i>
-							</button>
-							
-							<div class="dropdown-content">
-							  <a href="#">Skills and certifications
-								<i class=" fa fa-graduation-cap"></i>
-							  </a>
-							  <a href="#">Conference
-								<i class=" fa fa-users"></i>
-							  </a>
-							  <a href="#">Projects
-								<i class=" fa  fa-folder-open"></i>
-							  </a>
-							</div>
-						  </div>
-						
+						  <a class="nav-link" id="skills-tab" data-toggle="pill" href="#skills" role="tab" aria-controls="skills" aria-selected="false">
+							<i class="fa fa-key text-center mr-1"></i> 
+							skills
+						</a>
+						<a class="nav-link" id="certification-tab" data-toggle="pill" href="#certification" role="tab" aria-controls="certification" aria-selected="false">
+							<i class="fa fa-key text-center mr-1"></i> 
+							certifications
+						</a>
 						<a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
 							<i class="fa fa-key text-center mr-1"></i> 
-							Password
+							Conference
+						</a>
+						<a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
+							<i class="fa fa-key text-center mr-1"></i> 
+						Projects
+						</a>
+
+
+						<a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
+							<i class="fa fa-key text-center mr-1"></i> 
+							Privacy and Security
 						</a>
 					
-						<a class="nav-link" id="security-tab" data-toggle="pill" href="#security" role="tab" aria-controls="security" aria-selected="false">
-							<i class="fa fa-user text-center mr-1"></i> 
-							Privacy & Security
-						</a>
 						<a class="nav-link" id="application-tab" data-toggle="pill" href="#application" role="tab" aria-controls="application" aria-selected="false">
 							<i class="fa fa-adjust text-center mr-1"></i> 
 							Appearance
@@ -100,53 +112,49 @@
 							Post
 							
 						</a>
-
-
-
-
-
-
 					</div>
 				</div>
-				<div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+<!----Profile Section--->
+			<form  method="POST" action="settings.php">
+			<div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
 					<div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
 						<h3 class="mb-4">Profile</h3>
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>First Name</label>
-								  	<input type="text" class="form-control" value="">
+								  	<input type="text" id="first_name" name="first_name" class="form-control" value="<?php echo $out['first_name'];?>">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>Last Name</label>
-								  	<input type="text" class="form-control" value="">
+								  	<input type="text" id="last_name" name="last_name" class="form-control" value="<?php echo $out['last_name'];?>">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>Email</label>
-								  	<input type="text" class="form-control" value="">
+								  	<input type="text" id="email" name="email"class="form-control" value="<?php echo $out['email'];?>">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>Mobile Number</label>
-								  	<input type="text" class="form-control" value="">
+								  	<input type="text" id="mobile" name="mobile" class="form-control" value="<?php echo $out['mobile'];?>">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>Company/Institution</label>
-								  	<input type="text" class="form-control" value="">
+								  	<input type="text" id="institution" name="institution" class="form-control" value="<?php echo $out['institution'];?>">
 								</div>
 							</div>
 
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>Department</label>
-								  	<input type="text" class="form-control" value="">
+								  	<input type="text" id="dept" name="dept" class="form-control" value="<?php echo $out['dept'];?>">
 								</div>
 							</div>
 
@@ -154,22 +162,22 @@
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>Designation</label>
-								  	<input type="text" class="form-control" value="">
+								  	<input type="text" id="title" name="title" class="form-control" value="<?php echo $out['title'];?>">
 								</div>
 							</div>
 
                             <div class="col-md-6">
 								<div class="form-group">
 								  	<label>City</label>
-								  	<input type="text" class="form-control" value="">
+								  	<input type="text" id="city" name="city" class="form-control" value="<?php echo $out['city'];?>">
 								</div>
 							</div>
 
 
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="birthday">DOB</label><br><br>
-									<input type="date" id="birthday" name="birthday">
+									<label for="birthday">DOB(dd/mm/yy)</label><br><br>
+									<input type="date" id="dob" name="dob" value="<?php echo $out['dob'];?>">
 								</div>
 							</div>
 
@@ -177,11 +185,11 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Gender</label><br>
-									<input type="radio" id="male" name="gender" value="male">
+									<input type="radio" id="male" name="gender" value="<?php echo $out['dob'];?>">
 									<label for="male">Male</label><br>
-									<input type="radio" id="female" name="gender" value="female">
+									<input type="radio" id="female" name="gender" value="<?php echo $out['dob'];?>">
 									<label for="female">Female</label><br>
-									<input type="radio" id="other" name="gender" value="other">
+									<input type="radio" id="other" name="gender" value="<?php echo $out['dob'];?>">
 									<label for="other">Other</label>
 								</div>
 							</div>
@@ -190,12 +198,12 @@
 							<div class="col-md-12">
 								<div class="form-group">
 								  	<label>Bio</label>
-									<textarea class="form-control" rows="4"></textarea>
+								  	<input type="text" id="bio" name="bio" class="form-control" value="<?php echo $out['bio'];?>">
 								</div>
 							</div>
 						</div>
 						<div>
-							<button class="btn btn-primary">Update</button>
+							<button class="btn btn-primary" name="btnupdate">Update</button>
 							<button class="btn btn-light">Cancel</button>
 						</div>
 					</div>
@@ -255,7 +263,7 @@
 							</div>
 						</div>
 						<div>
-							<button class="btn btn-primary">Update</button>
+							<button class="btn btn-primary" name="btn-update">Update</button>
 							<button class="btn btn-light">Cancel</button>
 						</div>
 					</div>
@@ -316,6 +324,8 @@
 						</div>
 					</div>
 				</div>
+			</form>
+
 			</div>
 		</div>
 	</section>
@@ -328,6 +338,5 @@
     }); 
     </script>   
 
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
