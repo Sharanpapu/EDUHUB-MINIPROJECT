@@ -1,12 +1,25 @@
+<?php
+    include_once "a.php";
+    	//For Retrieval of Page data
+	$sql = "SELECT * from page where id='5'";
+	$result = $conn->query($sql);
+		// output data of each row
+		while($row = $result->fetch_assoc()) {
+			$title=$row["title"];
+		}	
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Settings </title>
+	<title><?php echo "$title";?></title>
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/settings.css">
+	<link rel="stylesheet" type="text/scss" href="css/settings.scss">
+
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
@@ -14,9 +27,11 @@
 
 </head>
 <body>
+<div id="header"></div>
+
 	<section class="py-5 my-5">
 		<div class="container">
-			<h1 class="mb-5">Account Settings</h1>
+			<h1 class="mb-5"></h1>
 			<div class="bg-white shadow rounded-lg d-block d-sm-flex">
 				<div class="profile-tab-nav border-right">
 					<div class="p-4">
@@ -299,10 +314,15 @@
 			</div>
 		</div>
 	</section>
+	<div id="footer"></div>
 
+	<script>
+        $(function(){
+    $("#header").load("includes/navigation.html"); 
+    $("#footer").load("includes/footer.html");
+    }); 
+    </script>   
 
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
