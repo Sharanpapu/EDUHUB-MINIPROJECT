@@ -71,7 +71,7 @@
 	$out=$userdata->fetch_assoc()
     
 
-	
+
 
 ?>
 <!DOCTYPE html>
