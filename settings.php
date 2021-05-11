@@ -8,7 +8,7 @@
 	{
 
 		$pup="UPDATE `user` set first_name='" . $_POST['first_name'] . "',last_name='" . $_POST['last_name']."',mobile='" . $_POST['mobile'] . "',dob='" . $_POST['dob'] . "',city='" . $_POST['city'] . "',dept='" . $_POST['dept'] . "',institution='" . $_POST['institution'] . "',title='" . $_POST['title'] . "',bio='" . $_POST['bio'] . "'  WHERE email='$email'";
-		if ($conn->query($up) === TRUE) {
+		if ($conn->query($pup) === TRUE) {
 			echo "Record updated successfully";
 		  } else {
 			echo "Error updating record: " . $conn->error;
