@@ -23,7 +23,8 @@
         <head>
         <title><?php echo "$title";?></title>
   <script src="//use.typekit.net/xyl8bgh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<script>try{Typekit.load();}catch(e){}</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
 <link rel='stylesheet' href='https://codepen.io/andytran/pen/vLmRVp.css'>
 <link rel="stylesheet" href="css/home.css">
@@ -36,25 +37,25 @@
 <!-- partial:index.partial.html -->
   <!-- Normal Demo-->
   <div class="row">
-  <?php while($row=$postdata->fetch_assoc())    { ?>
+    <?php while($row=$postdata->fetch_assoc())    { ?>
 
-  <div class="info">
-  </div>
-
-    <div class="demo-title"></div>
+    <div class="info">
+    </div>
+    <div class="demo-title">
+    </div>
     <!-- Post-->
-        <div class="col-lg-4">
+    <div class="col-lg-4">
         <div class="post-module">
         <!-- Thumbnail-->
-        <div class="thumbnail">
+          <div class="thumbnail">
             <div class="date">
                 <div class="day">27</div>
                 <div class="month">Mar</div>
             </div>
             <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
-        </div>
-        <!-- Post Content-->
-        <div class="post-content">
+          </div>
+          <!-- Post Content-->
+          <div class="post-content">
             <div class="category"><?php echo stripslashes(trim($row['datetime']));?></div>
             <h1 class="title"><?php echo $row['post_title'];?></h1>
             <h2 class="sub_title"><?php echo $row['tag1'];?><?php echo $row['tag2'];?></h2>
