@@ -9,7 +9,6 @@ body {
     font-family: "Open Sans", sans-serif;
   }
   body .footer {
-    margin-top: 100px;
     z-index: 1;
     --footer-background:#00264d;
     display: grid;
