@@ -21,9 +21,7 @@
 <!-- partial:index.partial.html -->
 <div id="header"></div>
 
-
-
-
+<div class="container">
 <section class="section section--intro">
     <img class="hero__image" src="https://images.unsplash.com/photo-1557551220-4e0e9f87ff36?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bG9nb3xlbnwwfDJ8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="" />
 
@@ -88,7 +86,10 @@
   </section>
 
   <div class="cursor"></div>
-  <div id="footer"></div>
+</div>
+<div id="footer"></div>
+
+
 
 <!-- partial -->
 <script  src="js/about.js"></script>
