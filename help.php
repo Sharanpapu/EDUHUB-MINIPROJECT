@@ -1,94 +1,106 @@
 <?php
-    require "a.php";
+require "a.php";
 
-    	//For Retrieval of Page data
-	$sql = "SELECT * from page where id='9'";
-	$result = $conn->query($sql);
-		// output data of each row
-		while($row = $result->fetch_assoc()) {
-			$title=$row["title"];
-		}
-if(isset($_POST['send']))
-{
-    $sender=$_POST['name'];
-    $sender_title=$_POST['title'];
-    $email=$_POST['email'];
-    $subject=$_POST['subject'];
-    $message=$_POST['message'];
-    $sql1 = "INSERT INTO `feedback` (`sender`,`sender_title`,`email`,`subject`, `message`) VALUES ('$sender', 
+//For Retrieval of Page data
+$sql = "SELECT * from page where id='9'";
+$result = $conn->query($sql);
+// output data of each row
+while ($row = $result->fetch_assoc()) {
+  $title = $row["title"];
+}
+if (isset($_POST['send'])) {
+  $sender = $_POST['name'];
+  $sender_title = $_POST['title'];
+  $email = $_POST['email'];
+  $subject = $_POST['subject'];
+  $message = $_POST['message'];
+  $sql1 = "INSERT INTO `feedback` (`sender`,`sender_title`,`email`,`subject`, `message`) VALUES ('$sender', 
     '$sender_title','$email','$subject','$message')";
 
-    $result1 = mysqli_query($conn, $sql1);
+  $result1 = mysqli_query($conn, $sql1);
 }
-    //code to sql
+//code to sql
 
 ?>
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title><?php echo "$title";?></title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-<link rel="stylesheet" href="css/help.css">
-
+    <meta charset="UTF-8">
+    <title><?php echo "$title"; ?></title>
+    <link rel="stylesheet" href="css/help.css">
 </head>
-<body>
-<!-- partial:index.partial.html -->
-<div id="header"></div>
-<h1><br><br><br></h1>
-<section class="contact-wrap">
-  <form action="help.php" method="POST" class="contact-form">
-    <div class="col-sm-6">
-      <div class="input-block">
-        <label for="">First Name</label>
-        <input type="text" class="form-control" name='name'>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="input-block">
-        <label for="">Designation</label>
-        <input type="text" class="form-control" name='title'>
-      </div>
-    </div>
-    <div class="col-sm-12">
-      <div class="input-block">
-        <label for="">Email</label>
-        <input type="text" class="form-control" name='email'>
-      </div>
-    </div>
-    <div class="col-sm-12">
-      <div class="input-block">
-        <label for="">Message Subject</label>
-        <input type="text" class="form-control" name='subject'>
-      </div>
-    </div>
-    <div class="col-sm-12">
-      <div class="input-block textarea">
-        <label for="">Drop your message here</label>
-        <textarea rows="3" type="text" class="form-control"name='message'></textarea>
-      </div>
-    </div>
-    <div class="col-sm-12">
-      <button class="square-button" name='send'>Send</button>
-    </div>
-  </form>
-</section>
 
-<!-- follow me template -->
-<div class="made-with-love">
-  Made with 
-  <i>♥</i> by 
-  <a target="_blank" href="https://codepen.io/nikhil8krishnan">Jayachandran Ramadoss</a>
-</div>
-<!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-  <script  src="js/help.js"></script>
-  <script>
-        $(function(){
-    $("#header").load("includes/navigation.html"); 
-    $("#footer").load("includes/footer.html");
-    }); 
-</script>
+<body>
+    <!-- partial:index.partial.html -->
+    <div id="header"></div>
+    <!-- partial:index.partial.html -->
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+
+        <div class="contact_us">
+            <section id="contact-wrap">
+                <div class="container">
+                    <h3>Drop Us a Line !</h3>
+                    <form action="help.php" method="POST">
+                        <div class="account-container">
+                            <div class="account-pic-container">
+                                <img src="images/logo.png" alt="Eduhub Logo">
+                            </div>
+                            <div class="account-info-container">
+                                <div class="account-email">
+                                    <label for="email">EMAIL</label>
+                                    <input type="email" id="email" name="email" class="form-control">
+                                </div>
+
+                                <div class="account-fullname">
+                                    <div class="firstname">
+                                        <label for="firstname">FIRST NAME</label>
+                                        <input type="text" name="name" class="form-control">
+                                    </div>
+                                    <div class="lastname">
+                                        <label for="lastname">TITLE</label>
+                                        <input type="text" id="title" name="title" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="account-username">
+                                    <label for="username">TITLE OF MESSAGE</label>
+                                    <input type="text" class="form-control" name='subject'>
+                                </div>
+                                <div class="account-bio">
+                                    <label for="bio">MESSAGE</label>
+                                    <textarea id="bio" cols="30" rows="2" name="message"
+                                        class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-action">
+                            <button name="send">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </body>
+
+    </html>
+
+    <div id="footer"></div>
+
+    <!-- partial -->
+    <script>
+    $(function() {
+        $("#header").load("includes/navigation.html");
+        $("#footer").load("includes/footer.html");
+    });
+    </script>
 </body>
+
 </html>
