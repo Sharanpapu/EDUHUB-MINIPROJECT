@@ -97,6 +97,16 @@
 						Share Knowledge and Get Mentors<br>
 				
 					</p>
+					<p><span> OUR MISSION </span></p>
+					<p> 
+
+					   We focus on the student development by the integration of 
+					   academic learning programs with larger issues of personal 
+					   improvement and individual growth.Several services and programs 
+					   are provided that assist the students towards their academic 
+					   objectives by encouraging self direction and by promoting personal development.
+
+					</p>
 				</div>
 				<div class="col-md-6 col-lg-4">
 					<img src="images/mission1.jpg" alt="">
@@ -134,21 +144,31 @@
 						or will become an, Alumini Like you<br>
 						And Finally ,
 					</p>
+					<p><span> OUR TEAM </span></p>
+					<p>
+
+					    "COMING TOGETHER IS A BEGINING.KEEPING TOGETHER IS PROGRESS<br>
+						WORKING TOGETHER IS SUCCESS"<br>
+
+						"THE STRENGTH OF THE TEAM IS EACH INDIVIDUAL MEMBER.<br>
+						THE STRENGTH OF EACH MEMBER IS THE TEAM".
+
+                    </p>
 				</div>
 				<div class="col-md-6 col-lg-4">
-					<img src="images/mission1.jpg" alt="">
+					<img src="images/team1.jpg" alt="">
 				</div>
 				<div class="col-md-6 col-lg-4">
-					<img src="images/mission2.jpg" alt="">
+					<img src="images/team2.jpg" alt="">
 				</div>
 				<div class="col-md-6 col-lg-4">
-					<img src="images/mission3.jpg" alt="">
+					<img src="images/team3.jpg" alt="">
 				</div>
 				<div class="col-md-6 col-lg-4">
-					<img src="images/mission4.jpg" alt="">
+					<img src="images/team4.jpg" alt="">
 				</div>
 				<div class="col-md-6 col-lg-4">
-					<img src="images/mission5.jpg" alt="">
+					<img src="images/team5.jpg" alt="">
 				</div>
 			</div>
 		</div>
@@ -168,21 +188,29 @@
 					<p>
 						A Tremendous platform which takes the major part in wonderful future of Students
 					</p>
+					<p><span> OUR VISION </span></p>
+					<p>
+
+					    Sri sairam engineering college aims at providing an effective
+					    platform for the students to enhance their skills and achievements which 
+					    would empower them to outdo challenges as active participants.
+						
+                    </p>
 				</div>
 				<div class="col-md-6 col-lg-4">
-					<img src="images/mission1.jpg" alt="">
+					<img src="images/vision1.jpg" alt="">
 				</div>
 				<div class="col-md-6 col-lg-4">
-					<img src="images/mission2.jpg" alt="">
+					<img src="images/vision2.jpg" alt="">
 				</div>
 				<div class="col-md-6 col-lg-4">
-					<img src="images/mission3.jpg" alt="">
+					<img src="images/vision3.jpg" alt="">
 				</div>
 				<div class="col-md-6 col-lg-4">
-					<img src="images/mission4.jpg" alt="">
+					<img src="images/vision4.jpg" alt="">
 				</div>
 				<div class="col-md-6 col-lg-4">
-					<img src="images/mission5.jpg" alt="">
+					<img src="images/vision5.jpg" alt="">
 				</div>
 			</div>
 		</div>
