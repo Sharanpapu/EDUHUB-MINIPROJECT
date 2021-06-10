@@ -28,6 +28,7 @@ header {
 
 header img {
 	height: 30px;
+	margin-top: 20px;
 }
 
 @media (max-width: 600px) {
