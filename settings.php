@@ -83,7 +83,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" type="text/css" href="css/settings.css">
     <link rel="stylesheet" type="text/scss" href="css/settings.scss">
-
+   
 
 
 
@@ -107,9 +107,7 @@
                 <div class="bg-white shadow rounded-lg d-block d-sm-flex">
                     <div class="profile-tab-nav border-right">
                         <div class="p-4">
-                            <div class="img-circle text-center mb-3">
-                                <img src=".jpg" alt="Image" class="shadow">
-                            </div>
+                            
                             <h4 class="text-center"></h4><?php echo $out['first_name'];?></h4>
                         </div>
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
@@ -468,6 +466,7 @@
             $("#footer").load("includes/footer.html");
         });
         </script>
+        
 
 </body>
 

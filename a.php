@@ -26,7 +26,8 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css'>
     <!--font awesome icons-->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css'>
-
+    <!----profileimage--->
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
 </head>
 
 <body>
@@ -42,7 +43,8 @@
 
     <!--settings-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
+    <!---profileimage-->
+    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 </body>
 
 </html>
