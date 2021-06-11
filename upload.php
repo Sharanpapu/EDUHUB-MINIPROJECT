@@ -3,7 +3,7 @@
 	$email=$_SESSION['email'];
 
 
-if (isset($_POST['image_upload'])) {
+if (isset($_POST['image_upload'])  && isset($_FILES['profile_image'])) {
 
 	echo "<pre>";
 	print_r($_FILES['profile_image']);
@@ -24,7 +24,9 @@ if (isset($_POST['image_upload'])) {
 			$img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
 			$img_ex_lc = strtolower($img_ex);
 
-			
+			$allowed_exs = array("jpg", "jpeg", "png", "webp"); 
+
+			if (in_array($img_ex_lc, $allowed_exs)) {
     			$new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
 				$img_upload_path = 'uploads/'.$new_img_name;
 				move_uploaded_file($tmp_name, $img_upload_path);
@@ -39,12 +41,18 @@ if (isset($_POST['image_upload'])) {
 
                   } else {
                     echo "Error updating record: " . $conn->error;
-                  }}				
+                  }
+            }				
+            else {
+				$em = "You can't upload files of this type";
+		        header("Location: settings.php?error=$em");
 			}
 		}
-	else {
+    }else {
 		$em = "unknown error occurred!";
-        echo '<script>alert("Sorry uplasdxaxoaded.")</script>';		
-
 		header("Location: settings.php?error=$em");
 	}
+
+}else {
+	header("Location: settings.php");
+}
