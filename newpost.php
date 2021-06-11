@@ -61,7 +61,11 @@ $result = $conn->query($sql);
 while ($row = $result->fetch_assoc()) {
   $title = $row["title"];
 }
-//code to sql
+        //if user is signed in or not check
+        if(!(isset($_SESSION['email'])))
+    {
+     header('location:login.php');
+    }
 
 ?>
 <!DOCTYPE html>
@@ -93,7 +97,7 @@ while ($row = $result->fetch_assoc()) {
                     <form action="newpost.php" method="post" enctype="multipart/form-data">
                         <div class="account-container">
                             <div class="account-pic-container">
-                                <img src="images/favicon.ico" />
+                                <img src="images/logo.jpg" />
                             </div>
                             <div class="account-info-container">
                                 <div class="account-email">

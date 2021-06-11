@@ -62,7 +62,7 @@ if (isset($_POST['send'])) {
 
                         <div class="account-container">
                             <div class="account-pic-container">
-                                <img src="images/favicon.ico" />
+                                <img src="images/logo.jpg" />
                             </div>
 
                             <div class="account-info-container">

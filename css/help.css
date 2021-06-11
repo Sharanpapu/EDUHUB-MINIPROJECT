@@ -1,6 +1,5 @@
 .contact-wrap{
     margin-top: 200px;
-    margin-bottom: 200px;
     background:blanchedalmond;
     align-content:space-between;
 }
@@ -11,10 +10,8 @@
   }
   
  .contact_us{
-    margin-top: 50px;
-    margin-bottom: 150px;
+    margin-top: 100px;
     padding-top: 30px;
-    padding-bottom: 30px;
     height: 100%;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
       url("https://images.unsplash.com/photo-1497561813398-8fcc7a37b567?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dG9wfGVufDB8MHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60") center/cover no-repeat;
@@ -25,10 +22,8 @@
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
   .new_post{
-    margin-top: 50px;
-    margin-bottom: 150px;
+    margin-top: 100px;
     padding-top: 30px;
-    padding-bottom: 30px;
     height: 100%;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
       url("https://images.unsplash.com/photo-1518367762352-defc3c7f237a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDl8fGNyZWF0ZXxlbnwwfDB8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60") center/cover no-repeat;
@@ -163,7 +158,9 @@
     padding:16px 31px;
     text-decoration:none;
     text-shadow:0px 1px 0px #a01d37;
-    
+    z-index: 2;
+    margin-bottom: 250px;
+
     
   
   }
@@ -176,13 +173,16 @@
   }
   
   .frame{
-      
+      z-index: 2;
     float:right ;
     position: absolute;
     right:    10px;
     bottom:   -100px;
+    margin-bottom: 250px;
+
   }
   .containerbutton {
+    z-index: 2;
     position: absolute;
     right:    50px;
     bottom:   -180px;

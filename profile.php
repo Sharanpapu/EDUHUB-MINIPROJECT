@@ -9,6 +9,7 @@
 		while($row = $result->fetch_assoc()) {
 			$title=$row["title"];
 		}
+        //if user is signed in or not check
         if(!(isset($_SESSION['email'])))
     {
      header('location:login.php');
@@ -66,8 +67,7 @@
                     </h2>
                     <div class="mc-content">
                         <div class="img-container">
-                            <img class="img-responsive"
-                                src="https://images.unsplash.com/photo-1620288627223-53302f4e8c74?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHByb2ZpbGUlMjBsb2dvfGVufDB8MXwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60">
+                            <img class="img-responsive" src="uploads/profile_image/<?=$out['profile_image']?>">
                         </div>
                         <div class="mc-description">
                             From : <?php echo $out['dept'];?><br>
@@ -459,8 +459,6 @@
                 </div> <!-- / Item 03 -->
             </div>
         </section>
-
-
     </div>
 
 

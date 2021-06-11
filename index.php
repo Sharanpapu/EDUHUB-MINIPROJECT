@@ -49,7 +49,7 @@ while ($row = $result->fetch_assoc()) {
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 text-center">
-                        <img src="images/logo.png" alt="">
+                        <img src="images/logo.jpg" />
                     </div>
                     <div class="col-lg-8 text-center mt-4">
                         <p>We Make What you Imagine and Work Beyond That </p><br>

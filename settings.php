@@ -423,34 +423,35 @@
                 </div>
             </div>
         </section>
-        <div id="footer"></div>
+    </div>
+    <div id="footer"></div>
 
-        <script>
-        $(function() {
-                $("#header").load("includes/navigation.html");
-                $("#footer").load("includes/footer.html");
-            }
+    <script>
+    $(function() {
+            $("#header").load("includes/navigation.html");
+            $("#footer").load("includes/footer.html");
+        }
 
-        );
-        </script>
-        <script>
-        $(document).ready(function() {
-            $(".mul-select").select2({
-                placeholder: "select ", //placeholder
-                tags: true,
-                tokenSeparators: ['/', ',', ';', " "]
-            });
-        })
-        </script>
-        <script>
-        $(document).ready(function() {
-            $(".mu-select").select2({
-                placeholder: "select ", //placeholder
-                tags: true,
-                tokenSeparators: ['/', ',', ';', " "]
-            });
-        })
-        </script>
+    );
+    </script>
+    <script>
+    $(document).ready(function() {
+        $(".mul-select").select2({
+            placeholder: "select ", //placeholder
+            tags: true,
+            tokenSeparators: ['/', ',', ';', " "]
+        });
+    })
+    </script>
+    <script>
+    $(document).ready(function() {
+        $(".mu-select").select2({
+            placeholder: "select ", //placeholder
+            tags: true,
+            tokenSeparators: ['/', ',', ';', " "]
+        });
+    })
+    </script>
 
 </body>
 
