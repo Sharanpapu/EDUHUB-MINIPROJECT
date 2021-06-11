@@ -3,69 +3,6 @@
 	$email=$_SESSION['email'];
 
     	//For Retrieval of Page data
-        //for profile image updation
-    if(isset($_POST['image_upload']))
-	{
-        $new_img_name=$_POST['profile_image'];
-        $img_upload_path = 'uploads/'.$new_img_name;
-		move_uploaded_file($tmp_name, $img_upload_path);
-
-		$profileimg="UPDATE `user` set profile_image='" . $_POST['profile_image'] . "'  WHERE email='$email'";
-		if ($conn->query($pup) === TRUE) {
-			echo "Record updated successfully";
-		  } else {
-			echo "Error updating record: " . $conn->error;
-		  }}
-	//for profile updation
-    if(isset($_POST['profileupdate']))
-	{
-
-		$pup="UPDATE `user` set first_name='" . $_POST['first_name'] . "',last_name='" . $_POST['last_name']."',mobile='" . $_POST['mobile'] . "',dob='" . $_POST['dob'] . "',city='" . $_POST['city'] . "',dept='" . $_POST['dept'] . "',institution='" . $_POST['institution'] . "',title='" . $_POST['title'] . "',bio='" . $_POST['bio'] . "'  WHERE email='$email'";
-		if ($conn->query($pup) === TRUE) {
-			echo "Record updated successfully";
-		  } else {
-			echo "Error updating record: " . $conn->error;
-		  }}
-	//for password updation
-	if(isset($_POST['passwordupdate']))
-	{
-
-		$paup="UPDATE `user` set password='" . $_POST['npassword'] . "',recovery='" . $_POST['recovery'] . "' WHERE email='$email'";
-		if ($conn->query($paup) === TRUE) {
-			echo "Record updated successfully";
-		  } else {
-			echo "Error updating record: " . $conn->error;
-		  }}
-	// for featured updation
-	if(isset($_POST['featuredupdate']))
-	{
-
-		$fup="UPDATE `user` set featured1='" . $_POST['featured1'] . "',featured2='" . $_POST['featured2'] . "',featured3='" . $_POST['featured3'] . "' WHERE email='$email'";
-		if ($conn->query($fup) === TRUE) {
-			echo "Record updated successfully";
-		  } else {
-			echo "Error updating record: " . $conn->error;
-		  }}
-	//for skill updation
-	if(isset($_POST['skillupdate']))
-	{
-
-		$sup="UPDATE `user` set skill1='" . $_POST['skill1'] . "',skill2='" . $_POST['skill2'] . "',skill3='" . $_POST['skill3'] . "' WHERE email='$email'";
-		if ($conn->query($sup) === TRUE) {
-			echo "Record updated successfully";
-		  } else {
-			echo "Error updating record: " . $conn->error;
-		  }}
-	//for Communication updation
-	if(isset($_POST['commupdate']))
-	{
-
-		$cup="UPDATE `user` set github='" . $_POST['github'] . "',linkedin='" . $_POST['linkedin'] . "',edumate='" . $_POST['edumate'] . "',website='" . $_POST['website'] . "' WHERE email='$email'";
-		if ($conn->query($cup) === TRUE) {
-			echo "Record updated successfully";
-		  } else {
-			echo "Error updating record: " . $conn->error;
-		  }}
 	//pagedata fetching
 	$sql = "SELECT * from page where id='5'";
 	$result = $conn->query($sql);
@@ -82,10 +19,6 @@
 	$query="SELECT * FROM `user` where email='$email'";
 	$userdata=$conn->query($query);
 	$out=$userdata->fetch_assoc()
-    
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -138,7 +71,7 @@
                                 <img src="uploads/<?=$out['profile_image']?>">
                             </div>
                             <?php ?>
-                            <form action="upload.php" method="post" enctype="multipart/form-data">
+                            <form action="update.php" method="post" enctype="multipart/form-data">
                                 <input type="file" name="profile_image">
                                 <input type="submit" name="image_upload" value="Upload">
 
@@ -178,7 +111,7 @@
                                 class="nav-link" id="post-tab" data-toggle="pill" href="#post" role="tab"
                                 aria-controls="post" aria-selected="false"><i class=" fa fa-bullhorn"></i>Post</a></div>
                     </div>
-                    <form method="POST" action="settings.php">
+                    <form method="POST" action="update.php">
                         <div class="tab-content p-4 p-md-7" id="v-pills-tabContent">
                             <!----Profile Section--->
                             <div class="tab-pane fade show active" id="account" role="tabpanel"
@@ -248,180 +181,170 @@
                                 <div><button class="btn btn-primary" name="profileupdate">Update</button><button
                                         class="btn btn-light">Cancel</button></div>
                             </div>
-                            < !----------Password Section------------>
-                                <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
-                                    <h3 class="mb-4">Password Settings</h3>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group"><label>Old password</label><input type="password"
-                                                    name="password" class="form-control"
-                                                    value="<?php echo $out['password'];?>"></div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group"><label>New password</label><input type="password"
-                                                    name="npassword" class="form-control"></div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group"><label>Confirm new password</label><input
-                                                    type="password" name="namepassword" class="form-control"></div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group"><label>Recovery</label><input type="text"
-                                                    class="form-control" name="recovery"
-                                                    value="<?php echo $out['recovery'];?>"></div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="form-check"><input class="form-check-input" type="checkbox"
-                                                        name="two-fact-auth" value="<?php echo $out['two-fact-auth'];?>"
-                                                        id="two-fact-auth"><label class="form-check-label"
-                                                        for="two-fact-auth">Two Factor Authentication </label></div>
-                                            </div>
+                            <!----------Password Section------------>
+                            <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+                                <h3 class="mb-4">Password Settings</h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"><label>Old password</label><input type="password"
+                                                name="password" class="form-control"
+                                                value="<?php echo $out['password'];?>"></div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"><label>New password</label><input type="password"
+                                                name="npassword" class="form-control"></div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"><label>Confirm new password</label><input
+                                                type="password" name="namepassword" class="form-control"></div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"><label>Recovery</label><input type="text"
+                                                class="form-control" name="recovery"
+                                                value="<?php echo $out['recovery'];?>"></div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="form-check"><input class="form-check-input" type="checkbox"
+                                                    name="two-fact-auth" value="<?php echo $out['two-fact-auth'];?>"
+                                                    id="two-fact-auth"><label class="form-check-label"
+                                                    for="two-fact-auth">Two Factor Authentication </label></div>
                                         </div>
                                     </div>
-                                    <div><button class="btn btn-primary" name="passwordupdate">Update</button><button
-                                            class="btn btn-light">Cancel</button></div>
                                 </div>
-                                < !---------Featured Section-------------->
-                                    <div class="tab-pane fade" id="featured" role="tabpanel"
-                                        aria-labelledby="featured-tab">
-                                        <h3 class="mb-4">Featured</h3>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group"><label>Featured Skillset</label><input
-                                                        type="text" id="featured1" name="featured1" class="form-control"
-                                                        value="<?php echo $out['featured1'];?>"></div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group"><label>Featured Experience</label><input
-                                                        type="text" id="featured2" name="featured2" class="form-control"
-                                                        value="<?php echo $out['featured2'];?>"></div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group"><label>Featured Achievement</label><input
-                                                        type="text" id="featured3" name="featured3" class="form-control"
-                                                        value="<?php echo $out['featured3'];?>"></div>
-                                            </div>
-                                        </div>
-                                        <div><button class="btn btn-primary"
-                                                name="featuredupdate">Update</button><button
-                                                class="btn btn-light">Cancel</button></div>
+                                <div><button class="btn btn-primary" name="passwordupdate">Update</button><button
+                                        class="btn btn-light">Cancel</button></div>
+                            </div>
+                            <!---------Featured Section-------------->
+                            <div class="tab-pane fade" id="featured" role="tabpanel" aria-labelledby="featured-tab">
+                                <h3 class="mb-4">Featured</h3>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group"><label>Featured Skillset</label><input type="text"
+                                                id="featured1" name="featured1" class="form-control"
+                                                value="<?php echo $out['featured1'];?>"></div>
                                     </div>
-                                    < !--------Skill Section------>
-                                        <div class="tab-pane fade" id="skill" role="tabpanel"
-                                            aria-labelledby="skill-tab">
-                                            <h3 class="mb-4">Skillset</h3>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="form-group"><label>Personal Skills</label><input
-                                                            type="text" id="skill1" name="skill1" class="form-control"
-                                                            value="<?php echo $out['skill1'];?>"></div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <div class="form-group"><label>Technical Skills</label><input
-                                                            type="text" id="skill2" name="skill2" class="form-control"
-                                                            value="<?php echo $out['skill2'];?>"></div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <div class="form-group"><label>Miscellaneous
-                                                            Skills</label><input type="text" id="skill3" name="skill3"
-                                                            class="form-control" value="<?php echo $out['skill3'];?>">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div><button class="btn btn-primary"
-                                                    name="skillupdate">Update</button><button
-                                                    class="btn btn-light">Cancel</button></div>
+                                    <div class="col-md-12">
+                                        <div class="form-group"><label>Featured Experience</label><input type="text"
+                                                id="featured2" name="featured2" class="form-control"
+                                                value="<?php echo $out['featured2'];?>"></div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group"><label>Featured Achievement</label><input type="text"
+                                                id="featured3" name="featured3" class="form-control"
+                                                value="<?php echo $out['featured3'];?>"></div>
+                                    </div>
+                                </div>
+                                <div><button class="btn btn-primary" name="featuredupdate">Update</button><button
+                                        class="btn btn-light">Cancel</button></div>
+                            </div>
+                            <!--------Skill Section------>
+                            <div class="tab-pane fade" id="skill" role="tabpanel" aria-labelledby="skill-tab">
+                                <h3 class="mb-4">Skillset</h3>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group"><label>Personal Skills</label><input type="text"
+                                                id="skill1" name="skill1" class="form-control"
+                                                value="<?php echo $out['skill1'];?>"></div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group"><label>Technical Skills</label><input type="text"
+                                                id="skill2" name="skill2" class="form-control"
+                                                value="<?php echo $out['skill2'];?>"></div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group"><label>Miscellaneous
+                                                Skills</label><input type="text" id="skill3" name="skill3"
+                                                class="form-control" value="<?php echo $out['skill3'];?>">
                                         </div>
-                                        < !-----------------Theme section---------------------->
-                                            <div class="tab-pane fade" id="appearance" role="tabpanel"
-                                                aria-labelledby="appearance-tab">
-                                                <h3 class="mb-4">Theme and Display</h3>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <div class="form-check"><input class="form-check-input"
-                                                                    type="checkbox" value="" id="app-check"><label
-                                                                    class="form-check-label" for="app-check">Dark
-                                                                </label></div>
-                                                            <div class="form-check"><input class="form-check-input"
-                                                                    type="checkbox" value="" id="defaultCheck2"><label
-                                                                    class="form-check-label" for="defaultCheck2">Light
-                                                                </label></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div><button class="btn btn-primary">Update</button><button
-                                                        class="btn btn-light">Cancel</button></div>
-                                            </div>
-                                            < !-----------------Notification Settings-------------->
-                                                <div class="tab-pane fade" id="notification" role="tabpanel"
-                                                    aria-labelledby="notification-tab">
-                                                    <h3 class="mb-4">Email notification preferences</h3>
-                                                    <div class="form-group">
-                                                        <div class="form-check"><input class="form-check-input"
-                                                                type="checkbox" value="" id="notification1"><label
-                                                                class="form-check-label" for="notification1">send
-                                                                daily updates. </label></div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="form-check"><input class="form-check-input"
-                                                                type="checkbox" value="" id="notification2"><label
-                                                                class="form-check-label" for="notification2">Use
-                                                                quieter messaging (blocks notification prompts from
-                                                                interrupting you). </label></div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="form-check"><input class="form-check-input"
-                                                                type="checkbox" value="" id="notification3"><label
-                                                                class="form-check-label" for="notification3">disable
-                                                                all notifications. </label></div>
-                                                    </div>
-                                                    <div><button class="btn btn-primary">Update</button><button
-                                                            class="btn btn-light">Cancel</button></div>
-                                                </div>
-                                                < !------------------Communication Settings------------->
-                                                    <div class="tab-pane fade" id="communication" role="tabpanel"
-                                                        aria-labelledby="communication-tab">
-                                                        <h3 class="mb-4">Communication</h3>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <div class="form-group"><label>Github
-                                                                        url</label><input type="text" id="github"
-                                                                        name="github" class="form-control"
-                                                                        value="<?php echo $out['github'];?>"></div>
-                                                            </div>
-                                                            <div class="col-md-12">
-                                                                <div class="form-group"><label>Linkedin
-                                                                        url</label><input type="text" id="linkedin"
-                                                                        name="linkedin" class="form-control"
-                                                                        value="<?php echo $out['linkedin'];?>">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-12">
-                                                                <div class="form-group"><label>Edumate
-                                                                        url</label><input type="text" id="edumate"
-                                                                        name="edumate" class="form-control"
-                                                                        value="<?php echo $out['edumate'];?>"></div>
-                                                            </div>
-                                                            <div class="col-md-12">
-                                                                <div class="form-group"><label>Website
-                                                                        url</label><input type="text" id="website"
-                                                                        name="website" class="form-control"
-                                                                        value="<?php echo $out['website'];?>"></div>
-                                                            </div>
-                                                        </div>
-                                                        <div><button class="btn btn-primary"
-                                                                name="commupdate">Update</button><button
-                                                                class="btn btn-light">Cancel</button></div>
-                                                    </div>
+                                    </div>
+                                </div>
+                                <div><button class="btn btn-primary" name="skillupdate">Update</button><button
+                                        class="btn btn-light">Cancel</button></div>
+                            </div>
+                            <!-----------------Theme section---------------------->
+                            <div class="tab-pane fade" id="appearance" role="tabpanel" aria-labelledby="appearance-tab">
+                                <h3 class="mb-4">Theme and Display</h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="form-check"><input class="form-check-input" type="checkbox"
+                                                    value="" id="app-check"><label class="form-check-label"
+                                                    for="app-check">Dark
+                                                </label></div>
+                                            <div class="form-check"><input class="form-check-input" type="checkbox"
+                                                    value="" id="defaultCheck2"><label class="form-check-label"
+                                                    for="defaultCheck2">Light
+                                                </label></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div><button class="btn btn-primary">Update</button><button
+                                        class="btn btn-light">Cancel</button></div>
+                            </div>
+                            <!-----------------Notification Settings-------------->
+                            <div class="tab-pane fade" id="notification" role="tabpanel"
+                                aria-labelledby="notification-tab">
+                                <h3 class="mb-4">Email notification preferences</h3>
+                                <div class="form-group">
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" value=""
+                                            id="notification1"><label class="form-check-label" for="notification1">send
+                                            daily updates. </label></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" value=""
+                                            id="notification2"><label class="form-check-label" for="notification2">Use
+                                            quieter messaging (blocks notification prompts from
+                                            interrupting you). </label></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" value=""
+                                            id="notification3"><label class="form-check-label"
+                                            for="notification3">disable
+                                            all notifications. </label></div>
+                                </div>
+                                <div><button class="btn btn-primary">Update</button><button
+                                        class="btn btn-light">Cancel</button></div>
+                            </div>
+                            <!------------------Communication Settings------------->
+                            <div class="tab-pane fade" id="communication" role="tabpanel"
+                                aria-labelledby="communication-tab">
+                                <h3 class="mb-4">Communication</h3>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group"><label>Github
+                                                url</label><input type="text" id="github" name="github"
+                                                class="form-control" value="<?php echo $out['github'];?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group"><label>Linkedin
+                                                url</label><input type="text" id="linkedin" name="linkedin"
+                                                class="form-control" value="<?php echo $out['linkedin'];?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group"><label>Edumate
+                                                url</label><input type="text" id="edumate" name="edumate"
+                                                class="form-control" value="<?php echo $out['edumate'];?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group"><label>Website
+                                                url</label><input type="text" id="website" name="website"
+                                                class="form-control" value="<?php echo $out['website'];?>">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div><button class="btn btn-primary" name="commupdate">Update</button><button
+                                        class="btn btn-light">Cancel</button></div>
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
         </section>
         <div id="footer"></div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
         <script>
         $(function() {
