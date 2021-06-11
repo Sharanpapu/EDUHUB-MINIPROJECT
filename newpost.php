@@ -86,7 +86,7 @@ while ($row = $result->fetch_assoc()) {
     </head>
 
     <body>
-        <div class="contact_us">
+        <div class="new_post">
             <section id="contact-wrap">
                 <div class="container">
                     <h3>Feed Your Innovation !</h3>
