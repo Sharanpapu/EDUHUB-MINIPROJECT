@@ -53,19 +53,17 @@ if (isset($_POST['send'])) {
 
 
 
-    
+
         <div class="contact_us">
             <section id="contact-wrap">
                 <div class="container">
                     <h3>Drop Us a Line !</h3>
                     <form action="help.php" method="POST">
-                        
+
                         <div class="account-container">
                             <div class="account-pic-container">
-                                <img src="images/logo.png" alt="Eduhub Logo">
+                                <img src="images/favicon.ico" />
                             </div>
-
-                             
 
                             <div class="account-info-container">
                                 <div class="account-email">
@@ -101,40 +99,39 @@ if (isset($_POST['send'])) {
                 </div>
             </section>
         </div>
-        
+
     </body>
 
     </html>
     <!--------CHATBOT--------->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
     <script type="text/javascript">
-    $(function(){
-        $('#button').click(function(){ 
-            if(!$('#iframe').length) {
-                    $('#iframeHolder').html('<iframe id="iframe" class="frame"  width="350" height="540" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/f4f8e3c7-8da1-44f1-86e6-ebb26bc5afe9"></iframe>');
+    $(function() {
+        $('#button').click(function() {
+            if (!$('#iframe').length) {
+                $('#iframeHolder').html(
+                    '<iframe id="iframe" class="frame"  width="350" height="540" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/f4f8e3c7-8da1-44f1-86e6-ebb26bc5afe9"></iframe>'
+                );
             }
-        });   
+        });
     });
 
     function myFunction() {
-    var x = document.getElementById("iframe");
-    if (x.style.display === "none") {
-    x.style.display = "block";
-    } else {
-    x.style.display = "none";
-  }
-}
-
-
-
+        var x = document.getElementById("iframe");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
     </script>
-     <div class="containerbutton">
-        
+    <div class="containerbutton">
+
         <button id="button" class="myButton" onclick="myFunction()">Chat</button>
-           
-         </div>
+
+    </div>
     <div id="iframeHolder"></div>
-    
+
     <div id="footer"></div>
 
     <!-- partial -->
@@ -144,11 +141,8 @@ if (isset($_POST['send'])) {
         $("#footer").load("includes/footer.html");
     });
     </script>
-    
-     
+
+
 </body>
 
 </html>
-
-        
-   

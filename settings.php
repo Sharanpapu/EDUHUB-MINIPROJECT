@@ -63,23 +63,28 @@
                 <h1 class="mb-5"></h1>
                 <div class="bg-white shadow rounded-lg d-block d-sm-flex">
                     <div class="profile-tab-nav border-right">
-                        <?php if (isset($_GET['error'])): ?>
-                        <p><?php echo $_GET['error']; ?></p>
-                        <?php endif ?>
-                        <div class="p-4">
-                            <div class="alb">
-                                <img src="uploads/<?=$out['profile_image']?>">
-                            </div>
-                            <?php ?>
-                            <form action="update.php" method="post" enctype="multipart/form-data">
-                                <input type="file" name="profile_image">
-                                <input type="submit" name="image_upload" value="Upload">
+                        <!----Profile picture upload--->
+                        <div class="profile_picture">
+                            <?php if (isset($_GET['error'])): ?> <p>
+                                <?php echo $_GET['error']; ?></p>
+                            <?php endif ?>
+                            <div class="p-4">
+                                <div class="alb">
+                                    <img src="uploads/profile_image/<?=$out['profile_image']?>">
+                                </div>
+                                <?php ?>
+                                <form action="update.php" method="post" enctype="multipart/form-data">
+                                    <input type="file" name="profile_image">
+                                    <input type="submit" name="image_upload" value="Upload">
 
-                                <h4 class="text-center"></h4><?php echo $out['first_name'];?></h4>
+                            </div>
+
+                            <h4 class="text-center"></h4><?php echo $out['first_name'];?></h4>
                         </div>
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
-                            aria-orientation="vertical"><a class="nav-link active" id="account-tab" data-toggle="pill"
-                                href="#account" role="tab" aria-controls="account" aria-selected="true"><i
+                            aria-orientation="vertical">
+                            <a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab"
+                                aria-controls="account" aria-selected="true"><i
                                     class="fa fa-home text-center mr-1"></i>Profile</a><a class="nav-link"
                                 id="password-tab" data-toggle="pill" href="#password" role="tab"
                                 aria-controls="password" aria-selected="false"><i
@@ -109,7 +114,8 @@
                                 href="#communication" role="tab" aria-controls="communication" aria-selected="false"><i
                                     class="fa fa-address-book" aria-hidden="true"></i>Communication</a><a
                                 class="nav-link" id="post-tab" data-toggle="pill" href="#post" role="tab"
-                                aria-controls="post" aria-selected="false"><i class=" fa fa-bullhorn"></i>Post</a></div>
+                                aria-controls="post" aria-selected="false"><i class=" fa fa-bullhorn"></i>Post</a>
+                        </div>
                     </div>
                     <form method="POST" action="update.php">
                         <div class="tab-content p-4 p-md-7" id="v-pills-tabContent">
@@ -136,7 +142,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group"><label>Mobile Number</label><input type="text"
                                                 id="mobile" name="mobile" class="form-control"
-                                                value="<?php echo $out['mobile'];?>"></div>
+                                                value="<?php echo $out['mobile'];?>">
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group"><label>Company/Institution</label><input type="text"
@@ -188,7 +195,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group"><label>Old password</label><input type="password"
                                                 name="password" class="form-control"
-                                                value="<?php echo $out['password'];?>"></div>
+                                                value="<?php echo $out['password'];?>">
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group"><label>New password</label><input type="password"
@@ -201,7 +209,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group"><label>Recovery</label><input type="text"
                                                 class="form-control" name="recovery"
-                                                value="<?php echo $out['recovery'];?>"></div>
+                                                value="<?php echo $out['recovery'];?>">
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -245,7 +254,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group"><label>Personal Skills</label><input type="text"
                                                 id="skill1" name="skill1" class="form-control"
-                                                value="<?php echo $out['skill1'];?>"></div>
+                                                value="<?php echo $out['skill1'];?>">
+                                        </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group"><label>Technical Skills</label><input type="text"

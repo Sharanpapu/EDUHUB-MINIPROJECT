@@ -2,7 +2,7 @@
     require "a.php";
 	$email=$_SESSION['email'];
 
-
+//for profile image upload
 if (isset($_POST['image_upload'])  && isset($_FILES['profile_image'])) {
 
 	echo "<pre>";
@@ -28,7 +28,7 @@ if (isset($_POST['image_upload'])  && isset($_FILES['profile_image'])) {
 
 			if (in_array($img_ex_lc, $allowed_exs)) {
     			$new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
-				$img_upload_path = 'uploads/'.$new_img_name;
+				$img_upload_path = 'uploads/profile_image/'.$new_img_name;
 				move_uploaded_file($tmp_name, $img_upload_path);
 
 				// Insert into Database
@@ -56,7 +56,8 @@ if (isset($_POST['image_upload'])  && isset($_FILES['profile_image'])) {
 }else {
 	$em = "Image is not there!";
 	header("Location: settings.php");
-}	//for profile updation
+}	
+//for profile updation
 if(isset($_POST['profileupdate']))
 {
 
