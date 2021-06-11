@@ -16,7 +16,16 @@
 	//userdata fetching 
 	$query="SELECT * FROM `user` where email='$email'";
 	$userdata=$conn->query($query);
-	$out=$userdata->fetch_assoc()
+	$out=$userdata->fetch_assoc();
+    
+    //skilldata fetching
+	$ts_query = "SELECT * from `skill` where skill_owner='$email' AND skill_type='technical'";
+	$ts_data=$conn->query($ts_query);
+    
+	$ps_query = "SELECT * from `skill` where skill_owner='$email' AND skill_type='personal'";
+	$ps_data=$conn->query($ps_query);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -177,22 +186,24 @@
             <!-----all skills--------->
             <div class="col-lg-6">
                 <div class="card_about card_about2">
+                    <h3>
+                        Technical Skills
+                    </h3>
+
+                    <?php while($row=$ts_data->fetch_assoc())    { ?>
+                    <p><?php echo $row['skill_name'];?></p>
+                    <?php } ?>
+                    <h3>
+                        Personality Skills
+                    </h3>
+
+                    <?php while($row=$ps_data->fetch_assoc())    { ?>
                     <p>
-                        A team of Engineers & Professionals joined to support SaiRam Students, Selective alumni
-                        and
-                        Venture to
-                        craft
-                        their quest towards Entrepreneurship by providing an Innovative Ecosystem. This indeed
-                        will
-                        develop them
-                        <strong> into Complete Engineers and Responsible Entrepreneurs.</strong> So, join us to
-                        learn,
-                        explore,
-                        and
-                        expand a community of <strong> entrepreneurs, problem solvers, and Remarkable
-                            leaders.</strong>
-                        we will
-                        support you get there further, faster.
+                        <?php echo $row['skill_name'];?>
+                    </p>
+                    <?php } ?>
+                    <h3>Miscellaneous Skills</h3>
+                    <p> <span><?php echo $out['skill3'];?></span>
                     </p>
                 </div>
             </div>
