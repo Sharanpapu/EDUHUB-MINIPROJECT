@@ -29,6 +29,12 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" type="text/css" href="css/settings.css">
     <link rel="stylesheet" type="text/scss" href="css/settings.scss">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
     <style>
     .alb {
@@ -252,118 +258,218 @@
                                 <h3 class="mb-4">Skillset</h3>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-group"><label>Personal Skills</label><input type="text"
-                                                id="skill1" name="skill1" class="form-control"
-                                                value="<?php echo $out['skill1'];?>">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group"><label>Technical Skills</label><input type="text"
-                                                id="skill2" name="skill2" class="form-control"
-                                                value="<?php echo $out['skill2'];?>"></div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group"><label>Miscellaneous
-                                                Skills</label><input type="text" id="skill3" name="skill3"
-                                                class="form-control" value="<?php echo $out['skill3'];?>">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div><button class="btn btn-primary" name="skillupdate">Update</button><button
-                                        class="btn btn-light">Cancel</button></div>
-                            </div>
-                            <!-----------------Theme section---------------------->
-                            <div class="tab-pane fade" id="appearance" role="tabpanel" aria-labelledby="appearance-tab">
-                                <h3 class="mb-4">Theme and Display</h3>
-                                <div class="row">
-                                    <div class="col-md-6">
+
                                         <div class="form-group">
-                                            <div class="form-check"><input class="form-check-input" type="checkbox"
-                                                    value="" id="app-check"><label class="form-check-label"
-                                                    for="app-check">Dark
-                                                </label></div>
-                                            <div class="form-check"><input class="form-check-input" type="checkbox"
-                                                    value="" id="defaultCheck2"><label class="form-check-label"
-                                                    for="defaultCheck2">Light
-                                                </label></div>
+                                            <label>Personal Skills</label>
+
+                                            <div class="form-group">
+
+                                                <form method="POST" action="update.php">
+
+                                                    <select class="mul-select" multiple="true" id="skill1"
+                                                        name="skill1[]" value="<?php echo $out['skill1'];?>">
+
+                                                        <option value='COMPASSIONATE'>COMPASSIONATE</option>
+                                                        <option value='EFFECTIVE COMMUNICATOR'>EFFECTIVE COMMUNICATOR
+                                                        </option>
+                                                        <option value='LEADERSHIP'>LEADERSHIP</option>
+                                                        <option value='INSIGHTFUL'>INSIGHTFUL</option>
+                                                        <option value='PERCEPTIVE'>PERCEPTIVE</option>
+                                                        <option value='CREATIVE'>CREATIVE</option>
+                                                        <option value='FLEXIBLE'>FLEXIBLE</option>
+                                                        <option value='INNOVATIVE'>INNOVATIVE</option>
+                                                        <option value='LOGICAL THINKING'>LOGICAL THINKING</option>
+                                                        <option value='PROBLEM SOLVING'>PROBLEM SOLVING</option>
+                                                        <option value='SOCIABLE'>SOCIABLE</option>
+                                                        <option value='CONSISTENT'>CONSISTENT</option>
+                                                        <option value='MARKETING'>MARKETING</option>
+                                                        <option value='CRITICAL THINKING '>CRITICAL THINKING</option>
+                                                    </select>
+                                            </div>
+
+
+
+
                                         </div>
-                                    </div>
-                                </div>
-                                <div><button class="btn btn-primary">Update</button><button
-                                        class="btn btn-light">Cancel</button></div>
-                            </div>
-                            <!-----------------Notification Settings-------------->
-                            <div class="tab-pane fade" id="notification" role="tabpanel"
-                                aria-labelledby="notification-tab">
-                                <h3 class="mb-4">Email notification preferences</h3>
-                                <div class="form-group">
-                                    <div class="form-check"><input class="form-check-input" type="checkbox" value=""
-                                            id="notification1"><label class="form-check-label" for="notification1">send
-                                            daily updates. </label></div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-check"><input class="form-check-input" type="checkbox" value=""
-                                            id="notification2"><label class="form-check-label" for="notification2">Use
-                                            quieter messaging (blocks notification prompts from
-                                            interrupting you). </label></div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-check"><input class="form-check-input" type="checkbox" value=""
-                                            id="notification3"><label class="form-check-label"
-                                            for="notification3">disable
-                                            all notifications. </label></div>
-                                </div>
-                                <div><button class="btn btn-primary">Update</button><button
-                                        class="btn btn-light">Cancel</button></div>
-                            </div>
-                            <!------------------Communication Settings------------->
-                            <div class="tab-pane fade" id="communication" role="tabpanel"
-                                aria-labelledby="communication-tab">
-                                <h3 class="mb-4">Communication</h3>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group"><label>Github
-                                                url</label><input type="text" id="github" name="github"
-                                                class="form-control" value="<?php echo $out['github'];?>">
+
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Technical Skills</label>
+
+                                                    <div class="form-group">
+                                                        <select class="mul-select" multiple="true" id="skill2"
+                                                            name="skill2[]" value="<?php echo $out['skill2'];?>">
+                                                            <option value='SQL'>SQL</option>
+                                                            <option value='JAVA'>JAVA</option>
+                                                            <option value='PYTHON'>PYTHON</option>
+                                                            <option value='LINUX'>LINUX</option>
+                                                            <option value='JAVA SCRIPT'>JAVA SCRIPT</option>
+                                                            <option value='AWS'>AWS</option>
+                                                            <option value='C++'>C++</option>
+                                                            <option value='C'>C</option>
+                                                            <option value='C#'>C#</option>
+                                                            <option value='NET'>NET</option>
+                                                            <option value='WEB DEVELOPMENT'>WEB DEVELOPMENT</option>
+                                                            <option value='APP DEVELOPMEN'>APP DEVELOPMENT</option>
+                                                            <option value='BLOCK CHAIN'>BLOCK CHAIN</option>
+                                                            <option value='BIG DATA ANALYSIS'>BIG DATA ANALYSIS</option>
+                                                            <option value='DATA SCIENCE '>DATA SCIENCE</option>
+                                                            <option value='3D PRINTING'>3D PRINTING</option>
+                                                            <option value='AR/VR'>AR/VR</option>
+                                                            <option value='GRAPHIC DISGINING'>GRAPHIC DISGINING</option>
+                                                            <option value='WEB ANALYSIS'>WEB ANALYSIS</option>
+                                                            <option value='FULL STACK DEVELOPMENT'>FULL STACK
+                                                                DEVELOPMENT</option>
+                                                            <option value='CLOUD COMPUTING'>CLOUD COMPUTING</option>
+                                                            <option value='ARTIFICIAL INTELLIGENCE'>ARTIFICIAL
+                                                                INTELLIGENCE</option>
+                                                            <option value='ROBOTICS'>ROBOTICS</option>
+                                                            <option value='DIGITAL MARKETING'>DIGITAL MARKETING</option>
+                                                            <option value='IOT'>IOT</option>
+                                                            <option value='MACHINE LEARNING'>MACHINE LEARNING</option>
+                                                            <option value='AUTOCAD'>AUTOCAD</option>
+                                                            <option value='CREO'>CREO</option>
+                                                            <option value='WEB DESINGING'>WEB DESINGING</option>
+                                                            <option value='CYBER SECURITY'>CYBER SECURITY</option>
+                                                            <option value='ANIMATIONS'>ANIMATIONS</option>
+                                                            <option value='DATA VISUALIZATION'>DATA VISUALIZATION
+                                                            </option>
+                                                            <option value='BOOTSTRAP'>BOOTSTRAP</option>
+                                                            <option value='RUBY'>RUBY</option>
+                                                            <option value='REACT'>REACT</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group"><label>Linkedin
-                                                url</label><input type="text" id="linkedin" name="linkedin"
-                                                class="form-control" value="<?php echo $out['linkedin'];?>">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group"><label>Edumate
-                                                url</label><input type="text" id="edumate" name="edumate"
-                                                class="form-control" value="<?php echo $out['edumate'];?>">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group"><label>Website
-                                                url</label><input type="text" id="website" name="website"
-                                                class="form-control" value="<?php echo $out['website'];?>">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div><button class="btn btn-primary" name="commupdate">Update</button><button
-                                        class="btn btn-light">Cancel</button></div>
-                            </div>
-                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Miscellaneous Skills</label>
+                                                    <input type="text" id="skill3" class="form-control" name="skill3"
+                                                        value="<?php echo $out['skill3'];?>">
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button class="btn btn-primary" name="skillupdate">Update</button>
+                                                <button class="btn btn-light">Cancel</button>
+
+                                            </div>
                     </form>
                 </div>
+                <!-----------------Theme section---------------------->
+                <div class="tab-pane fade" id="appearance" role="tabpanel" aria-labelledby="appearance-tab">
+                    <h3 class="mb-4">Theme and Display</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="form-check"><input class="form-check-input" type="checkbox" value=""
+                                        id="app-check"><label class="form-check-label" for="app-check">Dark
+                                    </label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" value=""
+                                        id="defaultCheck2"><label class="form-check-label" for="defaultCheck2">Light
+                                    </label></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div><button class="btn btn-primary">Update</button><button class="btn btn-light">Cancel</button>
+                    </div>
+                </div>
+                <!-----------------Notification Settings-------------->
+                <div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
+                    <h3 class="mb-4">Email notification preferences</h3>
+                    <div class="form-group">
+                        <div class="form-check"><input class="form-check-input" type="checkbox" value=""
+                                id="notification1"><label class="form-check-label" for="notification1">send
+                                daily updates. </label></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check"><input class="form-check-input" type="checkbox" value=""
+                                id="notification2"><label class="form-check-label" for="notification2">Use
+                                quieter messaging (blocks notification prompts from
+                                interrupting you). </label></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check"><input class="form-check-input" type="checkbox" value=""
+                                id="notification3"><label class="form-check-label" for="notification3">disable
+                                all notifications. </label></div>
+                    </div>
+                    <div><button class="btn btn-primary">Update</button><button class="btn btn-light">Cancel</button>
+                    </div>
+                </div>
+                <!------------------Communication Settings------------->
+                <div class="tab-pane fade" id="communication" role="tabpanel" aria-labelledby="communication-tab">
+                    <h3 class="mb-4">Communication</h3>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group"><label>Github
+                                    url</label><input type="text" id="github" name="github" class="form-control"
+                                    value="<?php echo $out['github'];?>">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group"><label>Linkedin
+                                    url</label><input type="text" id="linkedin" name="linkedin" class="form-control"
+                                    value="<?php echo $out['linkedin'];?>">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group"><label>Edumate
+                                    url</label><input type="text" id="edumate" name="edumate" class="form-control"
+                                    value="<?php echo $out['edumate'];?>">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group"><label>Website
+                                    url</label><input type="text" id="website" name="website" class="form-control"
+                                    value="<?php echo $out['website'];?>">
+                            </div>
+                        </div>
+                    </div>
+                    <div><button class="btn btn-primary" name="commupdate">Update</button><button
+                            class="btn btn-light">Cancel</button></div>
+                </div>
             </div>
-        </section>
-        <div id="footer"></div>
+            </form>
+    </div>
+    </div>
+    </section>
+    <div id="footer"></div>
 
-        <script>
-        $(function() {
-                $("#header").load("includes/navigation.html");
-                $("#footer").load("includes/footer.html");
-            }
+    <script>
+    $(function() {
+            $("#header").load("includes/navigation.html");
+            $("#footer").load("includes/footer.html");
+        }
 
-        );
-        </script>
+    );
+    </script>
+    <script>
+    $(document).ready(function() {
+        $(".mul-select").select2({
+            placeholder: "select ", //placeholder
+            tags: true,
+            tokenSeparators: ['/', ',', ';', " "]
+        });
+    })
+    </script>
+    <script>
+    $(document).ready(function() {
+        $(".mu-select").select2({
+            placeholder: "select ", //placeholder
+            tags: true,
+            tokenSeparators: ['/', ',', ';', " "]
+        });
+    })
+    </script>
+
 </body>
 
 </html>

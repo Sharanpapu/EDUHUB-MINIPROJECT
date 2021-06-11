@@ -78,7 +78,7 @@ if(isset($_POST['passwordupdate']))
 		echo "Error updating record: " . $conn->error;
 	  }}
 // for featured updation
-if(isset($_POST['featuredupdate']))
+/*if(isset($_POST['featuredupdate']))
 {
 
 	$fup="UPDATE `user` set featured1='" . $_POST['featured1'] . "',featured2='" . $_POST['featured2'] . "',featured3='" . $_POST['featured3'] . "' WHERE email='$email'";
@@ -86,17 +86,35 @@ if(isset($_POST['featuredupdate']))
 		echo "Record updated successfully";
 	  } else {
 		echo "Error updating record: " . $conn->error;
-	  }}
+	  }}*/
 //for skill updation
 if(isset($_POST['skillupdate']))
 {
+	//for skill updation		
+		$personal_skill = $_POST['skill1'];
+		foreach($personal_skill as $item){
+			$val="INSERT INTO skill(skill_owner,skill_name,skill_type) VALUES ('$email','$item','personal')";
+			mysqli_query($conn,$val);
+			
+		}
+		$technical_skill = $_POST['skill2'];
+		foreach($technical_skill as $item){
+			$val="INSERT INTO skill(skill_owner,skill_name,skill_type) VALUES ('$email','$item','technical')";
+			mysqli_query($conn,$val);
+			
+		}
+		$miscellaneous_skills =  $_POST['skill3'];
+		$val="INSERT INTO skill(skill_owner,skill_name,skill_type) VALUES ('$email','$item','misc')";	
+        
+		$sup="UPDATE `user` set skill1='" . $_POST['skill1'] . "',skill2='" . $_POST['skill2'] . "',skill3='" . $_POST['skill3'] . "' WHERE email='$email'";
+		//mysqli_query($conn,"UPDATE 'user' set  skill1='" . $_POST['skill1'] . "', skill2='" . $_POST['skill2'] . "' ,skill3='" . $_POST['skill3'] . "' WHERE email='" . $_POST['email'] . "'");
+		if ($conn->query($sup) === TRUE) {
+			echo "Record updated successfully";
+		  } else {
+			echo "Error updating record: " . $conn->error;
+		  } 
+	}
 
-	$sup="UPDATE `user` set skill1='" . $_POST['skill1'] . "',skill2='" . $_POST['skill2'] . "',skill3='" . $_POST['skill3'] . "' WHERE email='$email'";
-	if ($conn->query($sup) === TRUE) {
-		echo "Record updated successfully";
-	  } else {
-		echo "Error updating record: " . $conn->error;
-	  }}
 //for Communication updation
 if(isset($_POST['commupdate']))
 {

@@ -56,7 +56,10 @@ body {
 	display: inline-block;
 	
   }
-  
+  .mul-select{
+	width: 800px;
+  }
+
   /* Dropdown Content (Hidden by Default) */
   .dropdown-content {
 	display: none;
@@ -87,5 +90,10 @@ body {
 	background-color: #007bff;
   }
   
+  
+
+
+  
+
   
  
