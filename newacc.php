@@ -55,14 +55,15 @@ if (isset($_POST['post'])) {
 }	
 
 //For Retrieval of Page data
-$sql = "SELECT * from page where id='10'";
+$sql = "SELECT * from page where id='11'";
 $result = $conn->query($sql);
 // output data of each row
 while ($row = $result->fetch_assoc()) {
   $title = $row["title"];
+  $des=$row['description'];
 }
         //if user is signed in or not check
-        if(!(isset($_SESSION['email'])))
+ if(!(isset($_SESSION['email'])))
     {
      header('location:login.php');
     }
@@ -90,10 +91,10 @@ while ($row = $result->fetch_assoc()) {
     </head>
 
     <body>
-        <div class="new_post">
+        <div class="new_accomplishment">
             <section id="contact-wrap">
                 <div class="container">
-                    <h3>Feed Your Innovation !</h3>
+                    <h3><?php echo "$des"; ?></h3>
                     <form action="newacc.php" method="post" enctype="multipart/form-data">
                         <div class="account-container">
                             <div class="account-pic-container">
