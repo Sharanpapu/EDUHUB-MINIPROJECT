@@ -15,10 +15,14 @@
 		{
 		 header('location:login.php');
 		}
+        
+   
 	//userdata fetching 
 	$query="SELECT * FROM `user` where email='$email'";
 	$userdata=$conn->query($query);
-	$out=$userdata->fetch_assoc()
+	$out=$userdata->fetch_assoc();
+    
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,13 +61,6 @@
 <body>
     <div id="header"></div>
     <div class="container">
-        <nav class="nav">
-            <ul>
-                <li class="nav__item active"><a href="#">nav01</a></li>
-                <li class="nav__item"><a href="#">nav02</a></li>
-                <li class="nav__item"><a href="#">nav03</a></li>
-            </ul>
-        </nav>
         <section class="py-5 my-5">
             <div class="container">
                 <h1 class="mb-5"></h1>
@@ -89,37 +86,40 @@
                         </div>
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
                             aria-orientation="vertical">
-                            <a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab"
-                                aria-controls="account" aria-selected="true"><i
-                                    class="fa fa-home text-center mr-1"></i>Profile</a><a class="nav-link"
-                                id="password-tab" data-toggle="pill" href="#password" role="tab"
+                            <a class="nav-link" id="account-tab" data-toggle="pill" href="#account" role="tab"
+                                aria-controls="account" aria-selected="false"><i
+                                    class="fa fa-home text-center mr-1"></i>Profile</a>
+                            <a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab"
                                 aria-controls="password" aria-selected="false"><i
-                                    class="fa fa-key text-center mr-1"></i>Privacy and Security</a><a class="nav-link"
-                                id="featured-tab" data-toggle="pill" href="#featured" role="tab"
+                                    class="fa fa-key text-center mr-1"></i>Privacy and Security</a>
+                            <a class="nav-link" id="featured-tab" data-toggle="pill" href="#featured" role="tab"
                                 aria-controls="featured" aria-selected="false"><i
-                                    class="fa fa-key text-center mr-1"></i>Featured</a><a class="nav-link"
-                                id="skill-tab" data-toggle="pill" href="#skill" role="tab" aria-controls="skills"
-                                aria-selected="false"><i class="fa fa-certificate" aria-hidden="true"></i>skills</a><a
-                                class="nav-link" id="certification-tab" data-toggle="pill" href="#certification"
+                                    class="fa fa-key text-center mr-1"></i>Featured</a>
+                            <a class="nav-link" id="skill-tab" data-toggle="pill" href="#skill" role="tab"
+                                aria-controls="skills" aria-selected="false"><i class="fa fa-certificate"
+                                    aria-hidden="true"></i>skills</a>
+                            <a class="nav-link" id="certification-tab" data-toggle="pill" href="#certification"
                                 role="tab" aria-controls="certification" aria-selected="false"><i
-                                    class="fa fa-graduation-cap" aria-hidden="true"></i>certifications</a><a
-                                class="nav-link" id="project-tab" data-toggle="pill" href="#project" role="tab"
+                                    class="fa fa-graduation-cap" aria-hidden="true"></i>certifications</a>
+                            <a class="nav-link" id="project-tab" data-toggle="pill" href="#project" role="tab"
                                 aria-controls="project" aria-selected="false"><i class="fa fa-briefcase"
-                                    aria-hidden="true"></i>Projects</a><a class="nav-link" id="accomplishment-tab"
-                                data-toggle="pill" href="#accomplishment" role="tab" aria-controls="accomplishment"
-                                aria-selected="false"><i class="fa fa-bookmark" aria-hidden="true"></i>Accomplishments
-                            </a><a class="nav-link" id="appearance-tab" data-toggle="pill" href="#appearance" role="tab"
+                                    aria-hidden="true"></i>Projects</a>
+                            <a class="nav-link" id="accomplishment-tab" data-toggle="pill" href="#accomplishment"
+                                role="tab" aria-controls="accomplishment" aria-selected="false"><i
+                                    class="fa fa-bookmark" aria-hidden="true"></i>Accomplishments</a>
+                            <a class="nav-link" id="appearance-tab" data-toggle="pill" href="#appearance" role="tab"
                                 aria-controls="appearance" aria-selected="false"><i
-                                    class="fa fa-adjust text-center mr-1"></i>Appearance</a><a class="nav-link"
-                                id="notification-tab" data-toggle="pill" href="#notification" role="tab"
+                                    class="fa fa-adjust text-center mr-1"></i>Appearance</a>
+                            <a class="nav-link" id="notification-tab" data-toggle="pill" href="#notification" role="tab"
                                 aria-controls="notification" aria-selected="false"><i
-                                    class="fa fa-bell text-center mr-1"></i>Notification</a><a class="nav-link"
-                                id="cproject-tab" data-toggle="pill" href="#cproject" role="tab"
+                                    class="fa fa-bell text-center mr-1"></i>Notification</a>
+                            <a class="nav-link" id="cproject-tab" data-toggle="pill" href="#cproject" role="tab"
                                 aria-controls="cproject" aria-selected="false"><i class=" fa fa-play"></i>Current
-                                Project</a><a class="nav-link" id="communication-tab" data-toggle="pill"
-                                href="#communication" role="tab" aria-controls="communication" aria-selected="false"><i
-                                    class="fa fa-address-book" aria-hidden="true"></i>Communication</a><a
-                                class="nav-link" id="post-tab" data-toggle="pill" href="#post" role="tab"
+                                Project</a>
+                            <a class="nav-link" id="communication-tab" data-toggle="pill" href="#communication"
+                                role="tab" aria-controls="communication" aria-selected="false"><i
+                                    class="fa fa-address-book" aria-hidden="true"></i>Communication</a>
+                            <a class="nav-link" id="post-tab" data-toggle="pill" href="#post" role="tab"
                                 aria-controls="post" aria-selected="false"><i class=" fa fa-bullhorn"></i>Post</a>
                         </div>
                     </div>
@@ -385,6 +385,27 @@
                                         class="btn btn-light">Cancel</button>
                                 </div>
                             </div>
+
+                            <!-----------------Accomplishment Settings-------------->
+                            <div class="tab-pane fade" id="accomplishment" role="tabpanel"
+                                aria-labelledby="notification-tab">
+                                <h3 class="mb-4">Accomplishments & Certifications</h3>
+                                <div class="form-group">
+                                    <label>Add a new Accomplishment</label>
+                                    <button id="newaccomplishment" name="newaccomplishment"
+                                        class="btn btn-light">New</button>
+                                </div>
+                                <div class=" form-group">
+                                    <label>Add a new Certification</label>
+                                    <button id="newcertification" name="newcertification"
+                                        class="btn btn-light">New</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary">Update</button>
+                                    <button class="btn btn-light">Cancel</button>
+                                </div>
+                            </div>
+
                             <!------------------Communication Settings------------->
                             <div class="tab-pane fade" id="communication" role="tabpanel"
                                 aria-labelledby="communication-tab">

@@ -55,7 +55,6 @@ if (isset($_POST['image_upload'])  && isset($_FILES['profile_image'])) {
 
 }else {
 	$em = "Image is not there!";
-	header("Location: settings.php");
 }	
 //for profile updation
 if(isset($_POST['profileupdate']))
@@ -64,6 +63,8 @@ if(isset($_POST['profileupdate']))
 	$pup="UPDATE `user` set first_name='" . $_POST['first_name'] . "',last_name='" . $_POST['last_name']."',mobile='" . $_POST['mobile'] . "',dob='" . $_POST['dob'] . "',city='" . $_POST['city'] . "',dept='" . $_POST['dept'] . "',institution='" . $_POST['institution'] . "',title='" . $_POST['title'] . "',bio='" . $_POST['bio'] . "'  WHERE email='$email'";
 	if ($conn->query($pup) === TRUE) {
 		echo "Record updated successfully";
+		header('location:settings.php');
+
 	  } else {
 		echo "Error updating record: " . $conn->error;
 	  }}
@@ -74,6 +75,8 @@ if(isset($_POST['passwordupdate']))
 	$paup="UPDATE `user` set password='" . $_POST['npassword'] . "',recovery='" . $_POST['recovery'] . "' WHERE email='$email'";
 	if ($conn->query($paup) === TRUE) {
 		echo "Record updated successfully";
+		header('location:settings.php');
+
 	  } else {
 		echo "Error updating record: " . $conn->error;
 	  }}
@@ -110,6 +113,8 @@ if(isset($_POST['skillupdate']))
 		//mysqli_query($conn,"UPDATE 'user' set  skill1='" . $_POST['skill1'] . "', skill2='" . $_POST['skill2'] . "' ,skill3='" . $_POST['skill3'] . "' WHERE email='" . $_POST['email'] . "'");
 		if ($conn->query($sup) === TRUE) {
 			echo "Record updated successfully";
+			header('location:settings.php');
+
 		  } else {
 			echo "Error updating record: " . $conn->error;
 		  } 
@@ -122,6 +127,18 @@ if(isset($_POST['commupdate']))
 	$cup="UPDATE `user` set github='" . $_POST['github'] . "',linkedin='" . $_POST['linkedin'] . "',edumate='" . $_POST['edumate'] . "',website='" . $_POST['website'] . "' WHERE email='$email'";
 	if ($conn->query($cup) === TRUE) {
 		echo "Record updated successfully";
+		header('location:settings.php');
+
 	  } else {
 		echo "Error updating record: " . $conn->error;
-	  }}
+	  }
+}
+//accomplishments and certifications redirect page
+if(isset($_POST['newaccomplishment']))
+{
+	header('location:newacc.php');
+}
+if(isset($_POST['newcertification']))
+{
+	header('location:newcerti.php');
+}
