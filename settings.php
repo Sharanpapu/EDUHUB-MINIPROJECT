@@ -91,22 +91,19 @@
                                     class="fa fa-home text-center mr-1"></i>Profile</a>
                             <a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab"
                                 aria-controls="password" aria-selected="false"><i
-                                    class="fa fa-key text-center mr-1"></i>Privacy and Security</a>
+                                    class="fa fa-key text-center mr-1"></i>Privacy & Security</a>
                             <a class="nav-link" id="featured-tab" data-toggle="pill" href="#featured" role="tab"
                                 aria-controls="featured" aria-selected="false"><i
                                     class="fa fa-key text-center mr-1"></i>Featured</a>
                             <a class="nav-link" id="skill-tab" data-toggle="pill" href="#skill" role="tab"
                                 aria-controls="skills" aria-selected="false"><i class="fa fa-certificate"
                                     aria-hidden="true"></i>skills</a>
-                            <a class="nav-link" id="certification-tab" data-toggle="pill" href="#certification"
-                                role="tab" aria-controls="certification" aria-selected="false"><i
-                                    class="fa fa-graduation-cap" aria-hidden="true"></i>certifications</a>
-                            <a class="nav-link" id="project-tab" data-toggle="pill" href="#project" role="tab"
-                                aria-controls="project" aria-selected="false"><i class="fa fa-briefcase"
-                                    aria-hidden="true"></i>Projects</a>
                             <a class="nav-link" id="accomplishment-tab" data-toggle="pill" href="#accomplishment"
                                 role="tab" aria-controls="accomplishment" aria-selected="false"><i
-                                    class="fa fa-bookmark" aria-hidden="true"></i>Accomplishments</a>
+                                    class="fa fa-bookmark" aria-hidden="true"></i>Accomplishments & Certifications</a>
+                            <a class="nav-link" id="project-tab" data-toggle="pill" href="#project" role="tab"
+                                aria-controls="project" aria-selected="false"><i class="fa fa-suitcase"
+                                    aria-hidden="true"></i>Projects & Work Experience</a>
                             <a class="nav-link" id="appearance-tab" data-toggle="pill" href="#appearance" role="tab"
                                 aria-controls="appearance" aria-selected="false"><i
                                     class="fa fa-adjust text-center mr-1"></i>Appearance</a>
@@ -400,9 +397,17 @@
                                     <button id="newcertification" name="newcertification"
                                         class="btn btn-light">New</button>
                                 </div>
-                                <div>
-                                    <button class="btn btn-primary">Update</button>
-                                    <button class="btn btn-light">Cancel</button>
+                            </div>
+                            <!-----------------Projects Settings-------------->
+                            <div class="tab-pane fade" id="project" role="tabpanel" aria-labelledby="notification-tab">
+                                <h3 class="mb-4">Projects & Work Experience</h3>
+                                <div class="form-group">
+                                    <label>Add a new Project</label>
+                                    <button id="newproject" name="newproject" class="btn btn-light">New</button>
+                                </div>
+                                <div class=" form-group">
+                                    <label>Add a new Experience</label>
+                                    <button id="newexperience" name="newexperience" class="btn btn-light">New</button>
                                 </div>
                             </div>
 

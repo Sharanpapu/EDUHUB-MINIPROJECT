@@ -142,3 +142,13 @@ if(isset($_POST['newcertification']))
 {
 	header('location:newcerti.php');
 }
+
+//projects and work experiences redirect page
+if(isset($_POST['newproject']))
+{
+	header('location:newproject.php');
+}
+if(isset($_POST['newexperience']))
+{
+	header('location:newexperience.php');
+}
