@@ -7,10 +7,10 @@
 
 </head>
 <body>
-<form action="search.php" method="POST"> 
+<form action="searchbar.php" method="POST"> 
 <!-- partial:index.partial.html -->
 <div class="container">
-  <input type="text" placeholder="Search..." name="query">
+  <input type="text" placeholder="Search..." name="search" required/>
   <div class="search"></div>
 </div>
 <!-- partial -->
@@ -19,5 +19,19 @@
 
 
 </form>
+<?php
+//  PROCESS SEARCH WHEN FORM SUBMITTED
+if (isset($_POST['search'])) {
+  //  SEARCH FOR USERS
+  require "search.php";
+
+  //  DISPLAY RESULTS
+  if (count($results) > 0) {
+    foreach ($results as $r) {
+      printf("<div>%s - %s</div>", $r['first_name'], $r['email']);
+    }
+  } else { echo "No results found"; }
+}
+?>
 </body>
 </html>
