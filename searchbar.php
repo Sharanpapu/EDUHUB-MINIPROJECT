@@ -7,6 +7,9 @@
 
 </head>
 <body>
+
+
+
 <form action="searchbar.php" method="POST"> 
 <!-- partial:index.partial.html -->
 <div class="container">
@@ -30,8 +33,28 @@ if (isset($_POST['search'])) {
     foreach ($results as $r) {
       printf("<div>%s - %s</div>", $r['first_name'], $r['email']);
     }
-  } else { echo "No results found"; }
-}
+  
+
+  }
+  
+  if (count($result1) > 0) {
+    foreach ($result1 as $a) {
+      printf("<div>%s - %s</div>", $a['skill_name'], $a['skill_owner']);
+    }
+  }
+ 
+  if (count($result2) > 0) {
+    foreach ($result2 as $d) {
+      printf("<div>%s - %s</div>", $d['title'], $d['owner']);
+    }
+  }
+  
+ }
+
 ?>
+ 
+ 
+
+
 </body>
 </html>

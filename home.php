@@ -60,7 +60,7 @@
         </div>
         <!-- Post Content-->
         <div class="post-content">
-            <div class="category"><?php echo stripslashes(trim($row['datetime']));?></div>
+            <div class="category"><?php echo stripslashes(trim($row['time']));?></div>
             <h1 class="title"><?php echo $row['post_title'];?></h1>
             <h2 class="sub_title"><?php echo $row['tag1'];?><?php echo $row['tag2'];?></h2>
             <p class="description"><?php echo $row['post_description'];?></p>
