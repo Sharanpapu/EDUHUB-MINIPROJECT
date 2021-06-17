@@ -1,6 +1,6 @@
 <?php
     require "database/connect.php";
-    $connect = new PDO("mysql:host=localhost;dbname=eduhub-sairam", "root", "");
+    $connect = new PDO("mysql:host=localhost;dbname=eduhub-sairam", "root", "root");
     define("SITE_NAME", "Eduhub-sairam");
 	define("SITE_URL", "Eduhub-sairam");
 

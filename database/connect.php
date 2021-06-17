@@ -3,7 +3,7 @@
 
   $db_host = 'localhost';
   $db_user = 'root';
-  $db_password = '';
+  $db_password = 'root';
   $db_name='eduhub-sairam';
   $db_db = 'information_schema';
   $db_port = 3306;
