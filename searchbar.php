@@ -1,27 +1,35 @@
+<?php
+require "a.php";
+?>
 <!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
   <title>Search Bar</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="css/search.css">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/search.css">
+  
 
 </head>
 <body>
 
+<div id="header"></div>
+<div class="bg">
+ <div class="plate" >
 
-
-<form action="searchbar.php" method="POST"> 
-<!-- partial:index.partial.html -->
-<div class="container">
-  <input type="text" placeholder="Search..." name="search" required/>
-  <div class="search"></div>
-</div>
-<!-- partial -->
+   <form action="searchbar.php" method="POST"> 
+   <!-- partial:index.partial.html -->
+   <div class="container">
+   <input type="text" placeholder="Search..." name="search" required/>
+   <div class="search"></div>
+   </div>
+   <!-- partial -->
   
-
-
-
-</form>
+  
+   </form>
+ 
 <?php
 //  PROCESS SEARCH WHEN FORM SUBMITTED
 if (isset($_POST['search'])) {
@@ -52,9 +60,17 @@ if (isset($_POST['search'])) {
  }
 
 ?>
- 
- 
+ </div>
+ </div>
+ <div id="footer"></div>
+ <!-- partial -->
+ <script>
+    $(function() {
+        $("#header").load("includes/navigation.html");
+        $("#footer").load("includes/footer.html");
+    });
+    </script>   
 
-
+ 
 </body>
 </html>

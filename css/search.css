@@ -10,15 +10,22 @@ html, body {
   height: 100%;
 }
 
-body {
-  background: white;
+.bg {
+  min-height: 500px;
+  padding-bottom: 30%;
+ 
+  display: inline-block;
+  background-attachment: fixed;
+  background-position: center;
+  z-index: 1;
+  
 }
 
 .container {
   position: absolute;
   margin: auto;
   top: 0;
-  left: 0;
+  left: 120%;
   right: 0;
   bottom: 0;
   width: 300px;
@@ -126,4 +133,33 @@ body {
   color: white;
   opacity: 0.5;
   font-weight: bolder;
+}
+
+/*******card ********/
+
+
+.plate{
+  align-content: space-between;
+  border-radius: 2px;
+  display: inline-block;
+  height: auto;
+  padding: 20px;
+  position: absolute;
+  width: 50%;
+  height:50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);  
+  margin: 20px;
+  top:150px;
+  
+}
+.plate:hover {
+box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.plate{
+background:gainsboro;
+}
+.plate{
+
+background:white;
 }
