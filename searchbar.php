@@ -39,123 +39,235 @@ require "a.php";
       ?>
 
             <div class="col-lg-4">
-            <div class="wrapper">
-              <div class="profile-card js-profile-card">
-                <div class="profile-card__img">
-                  <img src="uploads/profile_image/<?= $r['profile_image'] ?>" alt="profile card">
-                </div>
-
-                <div class="profile-card__cnt js-profile-cnt">
-                  <div class="profile-card__name"><?php echo $r['first_name']; ?></div>
-                  <div class="profile-card__txt"><?php echo $r['title']; ?> from <strong><?php echo $r['dept']; ?>, <?php echo $r['institution']; ?></strong></div>
-                  <div class="profile-card-loc">
-                    <span class="profile-card-loc__txt">
-                      <?php echo $r['city']; ?>
-                    </span>
+              <div class="wrapper">
+                <div class="profile-card js-profile-card">
+                  <div class="profile-card__img">
+                    <img src="uploads/profile_image/<?= $r['profile_image'] ?>" alt="profile card">
                   </div>
 
-                  <!--<div class="profile-card-inf">
-            <div class="profile-card-inf__item">
-              <div class="profile-card-inf__title">1598</div>
-              <div class="profile-card-inf__txt">Followers</div>
-            </div>
-
-            <div class="profile-card-inf__item">
-              <div class="profile-card-inf__title">65</div>
-              <div class="profile-card-inf__txt">Following</div>
-            </div>
-
-            <div class="profile-card-inf__item">
-              <div class="profile-card-inf__title">123</div>
-              <div class="profile-card-inf__txt">Articles</div>
-            </div>
-
-            <div class="profile-card-inf__item">
-              <div class="profile-card-inf__title">85</div>
-              <div class="profile-card-inf__txt">Works</div>
-            </div>
-          </div>--->
-
-                  <div class="profile-card-social">
-                    <a href="<?php echo $r['linkedin']; ?>" class="profile-card-social__item facebook" target="_blank">
-                      <span class="icon-font">
-                        <svg class="icon">
-                          <use xlink:href="#icon-facebook"></use>
-                        </svg>
+                  <div class="profile-card__cnt js-profile-cnt">
+                    <div class="profile-card__name"><?php echo $r['first_name']; ?></div>
+                    <div class="profile-card__txt"><?php echo $r['title']; ?> from <strong><?php echo $r['dept']; ?>, <?php echo $r['institution']; ?></strong></div>
+                    <div class="profile-card-loc">
+                      <span class="profile-card-loc__txt">
+                        <?php echo $r['city']; ?>
                       </span>
-                    </a>
-                    <a href="<?php echo $r['edumate']; ?>" class="profile-card-social__item instagram" target="_blank">
-                      <span class="icon-font">
-                        <svg class="icon">
-                          <use xlink:href="#icon-instagram"></use>
-                        </svg>
-                      </span>
-                    </a>
+                    </div>
+           
+                    <div class="profile-card-social">
+                      <a href="<?php echo $r['linkedin']; ?>" class="profile-card-social__item facebook" target="_blank">
+                        <span class="icon-font">
+                          <svg class="icon">
+                            <use xlink:href="#icon-facebook"></use>
+                          </svg>
+                        </span>
+                      </a>
+                      <a href="<?php echo $r['edumate']; ?>" class="profile-card-social__item instagram" target="_blank">
+                        <span class="icon-font">
+                          <svg class="icon">
+                            <use xlink:href="#icon-instagram"></use>
+                          </svg>
+                        </span>
+                      </a>
 
-                    <a href="<?php echo $r['github']; ?>" class="profile-card-social__item github" target="_blank">
-                      <span class="icon-font">
-                        <svg class="icon">
-                          <use xlink:href="#icon-github"></use>
-                        </svg>
-                      </span>
-                    </a>
+                      <a href="<?php echo $r['github']; ?>" class="profile-card-social__item github" target="_blank">
+                        <span class="icon-font">
+                          <svg class="icon">
+                            <use xlink:href="#icon-github"></use>
+                          </svg>
+                        </span>
+                      </a>
 
 
-                    <a href="<?php echo $r['website']; ?>" class="profile-card-social__item link" target="_blank">
-                      <span class="icon-font">
-                        <svg class="icon">
-                          <use xlink:href="#icon-link"></use>
-                        </svg>
-                      </span>
-                    </a>
+                      <a href="<?php echo $r['website']; ?>" class="profile-card-social__item link" target="_blank">
+                        <span class="icon-font">
+                          <svg class="icon">
+                            <use xlink:href="#icon-link"></use>
+                          </svg>
+                        </span>
+                      </a>
 
-                  </div>
+                    </div>
 
-                  <div class="profile-card-ctr">
-                    <button class="profile-card__button button--blue">View Profile</button>
-                    <button class="profile-card__button button--orange">Notify</button>
+                    <div class="profile-card-ctr">
+                      <button class="profile-card__button button--blue">View Profile</button>
+                      <button class="profile-card__button button--orange">Notify</button>
+                    </div>
                   </div>
                 </div>
+
+
               </div>
 
-
-            </div>
-
-            </div> <?php }
+            </div> 
+            <?php }
                 }
                     ?>
 
 
-    </div>
-
-  </div>
 
 
-<?php
+        <?php
         if (count($result1) > 0) {
           foreach ($result1 as $a) {
-            printf("<div>%s - %s</div>", $a['skill_name'], $a['skill_owner']);
-          }
-        }
+            $query = "SELECT * FROM `user` where email='$a[skill_owner]'";
+            $userdata = $conn->query($query);
+            $r = $userdata->fetch_assoc();
+        ?>
+                        <div class="col-lg-4">
+              <div class="wrapper">
+                <div class="profile-card js-profile-card">
+                  <div class="profile-card__img">
+                    <img src="uploads/profile_image/<?= $r['profile_image'] ?>" alt="profile card">
+                  </div>
 
-        if (count($result2) > 0) {
-          foreach ($result2 as $d) {
-            printf("<div>%s - %s</div>", $d['title'], $d['owner']);
+                  <div class="profile-card__cnt js-profile-cnt">
+                    <div class="profile-card__name"><?php echo $r['first_name']; ?></div>
+                    <div class="profile-card__txt"><?php echo $r['title']; ?> from <strong><?php echo $r['dept']; ?>, <?php echo $r['institution']; ?></strong></div>
+                    <div class="profile-card-loc">
+                      <span class="profile-card-loc__txt">
+                        <?php echo $r['city']; ?>
+                      </span>
+                    </div>
+           
+                    <div class="profile-card-social">
+                      <a href="<?php echo $r['linkedin']; ?>" class="profile-card-social__item facebook" target="_blank">
+                        <span class="icon-font">
+                          <svg class="icon">
+                            <use xlink:href="#icon-facebook"></use>
+                          </svg>
+                        </span>
+                      </a>
+                      <a href="<?php echo $r['edumate']; ?>" class="profile-card-social__item instagram" target="_blank">
+                        <span class="icon-font">
+                          <svg class="icon">
+                            <use xlink:href="#icon-instagram"></use>
+                          </svg>
+                        </span>
+                      </a>
+
+                      <a href="<?php echo $r['github']; ?>" class="profile-card-social__item github" target="_blank">
+                        <span class="icon-font">
+                          <svg class="icon">
+                            <use xlink:href="#icon-github"></use>
+                          </svg>
+                        </span>
+                      </a>
+
+
+                      <a href="<?php echo $r['website']; ?>" class="profile-card-social__item link" target="_blank">
+                        <span class="icon-font">
+                          <svg class="icon">
+                            <use xlink:href="#icon-link"></use>
+                          </svg>
+                        </span>
+                      </a>
+
+                    </div>
+
+                    <div class="profile-card-ctr">
+                      <button class="profile-card__button button--blue">View Profile</button>
+                      <button class="profile-card__button button--orange">Notify</button>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+
+            </div> 
+
+      <?php
           }
         }
       }
 
-?>
-</div>
-</div>
-<div id="footer"></div>
-<!-- partial -->
-<script>
-  $(function() {
-    $("#header").load("includes/navigation.html");
-    $("#footer").load("includes/footer.html");
-  });
-</script>
+      ?>
+      <?php if (count($result2) > 0) {
+          foreach ($result2 as $a) {
+            $query = "SELECT * FROM `user` where email='$a[owner]'";
+            $userdata = $conn->query($query);
+            $r = $userdata->fetch_assoc();
+        ?>
+                        <div class="col-lg-4">
+              <div class="wrapper">
+                <div class="profile-card js-profile-card">
+                  <div class="profile-card__img">
+                    <img src="uploads/profile_image/<?= $r['profile_image'] ?>" alt="profile card">
+                  </div>
+
+                  <div class="profile-card__cnt js-profile-cnt">
+                    <div class="profile-card__name"><?php echo $r['first_name']; ?></div>
+                    <div class="profile-card__txt"><?php echo $r['title']; ?> from <strong><?php echo $r['dept']; ?>, <?php echo $r['institution']; ?></strong></div>
+                    <div class="profile-card-loc">
+                      <span class="profile-card-loc__txt">
+                        <?php echo $r['city']; ?>
+                      </span>
+                    </div>
+           
+                    <div class="profile-card-social">
+                      <a href="<?php echo $r['linkedin']; ?>" class="profile-card-social__item facebook" target="_blank">
+                        <span class="icon-font">
+                          <svg class="icon">
+                            <use xlink:href="#icon-facebook"></use>
+                          </svg>
+                        </span>
+                      </a>
+                      <a href="<?php echo $r['edumate']; ?>" class="profile-card-social__item instagram" target="_blank">
+                        <span class="icon-font">
+                          <svg class="icon">
+                            <use xlink:href="#icon-instagram"></use>
+                          </svg>
+                        </span>
+                      </a>
+
+                      <a href="<?php echo $r['github']; ?>" class="profile-card-social__item github" target="_blank">
+                        <span class="icon-font">
+                          <svg class="icon">
+                            <use xlink:href="#icon-github"></use>
+                          </svg>
+                        </span>
+                      </a>
+
+
+                      <a href="<?php echo $r['website']; ?>" class="profile-card-social__item link" target="_blank">
+                        <span class="icon-font">
+                          <svg class="icon">
+                            <use xlink:href="#icon-link"></use>
+                          </svg>
+                        </span>
+                      </a>
+
+                    </div>
+
+                    <div class="profile-card-ctr">
+                      <button class="profile-card__button button--blue">View Profile</button>
+                      <button class="profile-card__button button--orange">Notify</button>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+
+            </div> 
+
+      <?php
+          }
+        }
+      ?>
+
+    </div>
+
+  </div>
+  <div id="footer"></div>
+  <!-- partial -->
+  <script>
+    $(function() {
+      $("#header").load("includes/navigation.html");
+      $("#footer").load("includes/footer.html");
+    });
+  </script>
 
 
 </body>
