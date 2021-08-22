@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jun 12, 2021 at 01:17 PM
+-- Generation Time: Aug 22, 2021 at 04:09 PM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
@@ -260,7 +260,8 @@ CREATE TABLE `project` (
 --
 
 INSERT INTO `project` (`id`, `owner`, `title`, `members`, `description`, `image`, `url`, `time`) VALUES
-(10, '123@gmail.com', 'eduhub', 'sir ,jr,sssr', 'aaaa', 'IMG-60c467256ab3c3.80153569.jpg', 'aaaaa', '2021-06-12 13:19:57');
+(10, '123@gmail.com', 'eduhub', 'sir ,jr,sssr', 'aaaa', 'IMG-60c467256ab3c3.80153569.jpg', 'aaaaa', '2021-06-12 13:19:57'),
+(11, 'e8ec088@sairamtap.edu.in', 'emergency', '', '', 'IMG-60d5c2bb6c61b2.12193265.jpg', '', '2021-06-25 17:19:15');
 
 -- --------------------------------------------------------
 
@@ -283,7 +284,6 @@ INSERT INTO `skill` (`skill_id`, `skill_owner`, `skill_name`, `skill_type`) VALU
 (6, '123@gmail.com', 'COMPASSIONATE', 'personal'),
 (7, '123@gmail.com', 'LEADERSHIP', 'personal'),
 (8, '123@gmail.com', 'PYTHON', 'technical'),
-(9, '123@gmail.com', 'NET', 'technical'),
 (10, '123@gmail.com', 'EFFECTIVE COMMUNICATOR', 'personal'),
 (11, '123@gmail.com', 'INSIGHTFUL', 'personal'),
 (12, '123@gmail.com', 'JAVA', 'technical'),
@@ -295,7 +295,14 @@ INSERT INTO `skill` (`skill_id`, `skill_owner`, `skill_name`, `skill_type`) VALU
 (18, '123@gmail.com', 'LEADERSHIP', 'personal'),
 (19, '123@gmail.com', 'SQL', 'technical'),
 (20, '123@gmail.com', 'JAVA', 'technical'),
-(21, '123@gmail.com', 'LINUX', 'technical');
+(21, '123@gmail.com', 'LINUX', 'technical'),
+(22, '123@gmail.com', 'EFFECTIVE COMMUNICATOR', 'personal'),
+(23, '123@gmail.com', 'JAVA', 'technical'),
+(24, 'e8ec088@sairamtap.edu.in', 'JAVA', 'technical'),
+(25, 'e8ec088@sairamtap.edu.in', 'LINUX', 'technical'),
+(26, 'e8ec088@sairamtap.edu.in', 'JAVA SCRIPT', 'technical'),
+(27, 'e8ec088@sairamtap.edu.in', 'LEADERSHIP', 'personal'),
+(28, 'e8ec088@sairamtap.edu.in', 'INSIGHTFUL', 'personal');
 
 -- --------------------------------------------------------
 
@@ -310,7 +317,7 @@ CREATE TABLE `user` (
   `last_name` varchar(50) DEFAULT NULL,
   `status` int(2) NOT NULL DEFAULT '0',
   `last_seen` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `profile_image` varchar(50) DEFAULT NULL,
+  `profile_image` varchar(50) NOT NULL DEFAULT 'default.webp',
   `cover_image` varchar(50) DEFAULT NULL,
   `gender` varchar(10) DEFAULT NULL,
   `dept` varchar(10) DEFAULT NULL,
@@ -339,11 +346,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`email`, `password`, `first_name`, `last_name`, `status`, `last_seen`, `profile_image`, `cover_image`, `gender`, `dept`, `dob`, `mobile`, `city`, `institution`, `title`, `bio`, `featured1`, `featured2`, `featured3`, `skill1`, `skill2`, `skill3`, `github`, `linkedin`, `edumate`, `recovery`, `website`, `two-fact-auth`) VALUES
-('1234@gmail.com', '123', 'j', 'r', 0, '2021-05-09 15:46:26', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('123@gmail.com', '123', 'Jayachandran', 'Ramadoss', 1, '2021-06-12 13:06:25', 'IMG-60c4b3661f4202.62513619.webp', NULL, NULL, 'ECE', '', '738482467', 'Chennai', 'Sri Sairam Engineering College', 'Student Intern at Zoho Corp', 'Web Developer', 'Web development', 'Summer Intern At Zoho', 'Smart India Hackathon Winner', 'Array', 'Array', 'volleyball , chess', NULL, NULL, NULL, '', NULL, NULL),
-('1@gmail.com', '123', '1', '2', 1, '2021-05-10 05:26:42', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('e8ec088@sairamtap.edu.in', '123', 'Jayachandran', 'Ramadoss', 1, '2021-05-12 12:58:56', NULL, NULL, 'male', 'ECE', '03/08/2001', '758482464', 'Chennai', 'Sri Sairam engineering college ', 'student', 'wxwzedfcsdsc', 'Full Stack Developer', 'Smart India Hackathon Winner', 'won in volleyball championship', 'Array', 'Array', 'Volleyball, Cricket', 'https://github.com/jrjakiro', '', '', '123@gmail.com', '', NULL),
-('jrjakiro2001@gmail.com', '123', 'J', 'R', 0, '2021-05-10 05:09:16', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('1234@gmail.com', '123', 'j', 'r', 0, '2021-05-09 15:46:26', 'default.webp', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('123@gmail.com', '123', 'Jayachandran', 'Ramadoss', 1, '2021-06-12 13:06:25', 'IMG-60c4b4df759529.26637057.webp', NULL, NULL, 'ECE', '', '738482467', 'Chennai', 'Sri Sairam Engineering College', 'Student Intern at Zoho Corp', 'Web Developer', 'Web development', 'Summer Intern At Zoho', 'Smart India Hackathon Winner', 'Array', 'Array', 'volleyball , chess', NULL, NULL, NULL, '', NULL, NULL),
+('1@gmail.com', '123', '1', '2', 1, '2021-05-10 05:26:42', 'default.webp', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('e8ec088@sairamtap.edu.in', '123', 'Jayachandran', 'Ramadoss', 1, '2021-05-12 12:58:56', 'default.webp', NULL, 'male', 'ECE', '', '758482464', 'Chennai', 'Sri Sairam engineering college ', 'student', 'hello it my bio', 'Full Stack Developer', 'Smart India Hackathon Winner', 'won in volleyball championship', 'Array', '', 'Volleyball, Cricket', 'https://github.com/jrjakiro', '', '', '123@gmail.com', '', NULL),
+('jrjakiro2001@gmail.com', '123', 'J', 'R', 0, '2021-05-10 05:09:16', 'default.webp', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -447,10 +454,10 @@ ALTER TABLE `post`
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `skill`
 --
 ALTER TABLE `skill`
-  MODIFY `skill_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `skill_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
