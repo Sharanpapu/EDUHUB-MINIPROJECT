@@ -25,7 +25,7 @@
 
     <div class="container">
         <section class="section section--intro">
-            <img class="hero__image" src="images/accra.mp4" alt="" />
+            <!--<img class="hero__image" src="images/" alt="" />-->
 
             <svg class="cross-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                 fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -42,8 +42,8 @@
             <div class="ring ring--left"></div>
             <div class="ring ring--right"></div>
 
-            <h3 class="hero__title hero__title--1">HI, I'M JR ACCRA</h3>
-            <h3 class="hero__title hero__title--1">Spider in World Web</h3>
+            <h3 class="hero__title hero__title--1"></h3>
+            <h3 class="hero__title hero__title--1"></h3>
 
             <p class="hero__copy"><span>I'm not the usual one in the World but We Do Wonders than Wonders</span></p>
         </section>
