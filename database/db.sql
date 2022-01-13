@@ -233,11 +233,9 @@ CREATE TABLE `post` (
 -- Dumping data for table `post`
 --
 
-INSERT INTO `post` (`id`, `post_owner`, `post_title`, `post_description`, `tag1`, `tag2`, `mention`, `url`, `post_image`, `time`) VALUES
-(3, '123@gmail.com', 'Launch of Eduhub', 'This is the most awaited platform in Sairam circle which plays most important role', '#Web', '#sairam', 'Jayachandran Ramadoss', '', 'IMG-60c3a1e3a719c7.97700247.png', '2021-06-12 11:26:34'),
-(4, '123@gmail.com', 'My Achievement', 'It is about a website', '', '', '', '', 'IMG-60c44c3b78c717.93859312.jpg', '2021-06-12 11:26:34'),
-(5, '123@gmail.com', 'jr', 'jr first', '', '', '', '', 'IMG-60c45d2b0438b2.78444803.jpg', '2021-06-12 12:37:23');
-
+INSERT INTO `post` (`id`, `post_owner`, `post_title`, `post_description`, `tag1`, `tag2`, `mention`, `url`, `post_image`, `time`) VALUES 
+(6, 'sazzy@gmail.com', 'welcome to eduhub', 'Doing Good', '#hello ', '#good day', 'Sharanyaa', '', 'IMG-61e00a11ae8020.15900832.jpg', '2022-01-13 16:46:33'),
+(7, 'sazzy@gmail.com', 'welcome to eduhub', 'have a good day', '#hello ', '#good day', 'Sharanyaa', '', 'IMG-61e019ba59f3d4.15895134.jpg', '2022-01-13 17:53:22');
 -- --------------------------------------------------------
 
 --
@@ -345,13 +343,9 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`email`, `password`, `first_name`, `last_name`, `status`, `last_seen`, `profile_image`, `cover_image`, `gender`, `dept`, `dob`, `mobile`, `city`, `institution`, `title`, `bio`, `featured1`, `featured2`, `featured3`, `skill1`, `skill2`, `skill3`, `github`, `linkedin`, `edumate`, `recovery`, `website`, `two-fact-auth`) VALUES
-('1234@gmail.com', '123', 'j', 'r', 0, '2021-05-09 15:46:26', 'default.webp', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('123@gmail.com', '123', 'Jayachandran', 'Ramadoss', 1, '2021-06-12 13:06:25', 'IMG-60c4b4df759529.26637057.webp', NULL, NULL, 'ECE', '', '738482467', 'Chennai', 'Sri Sairam Engineering College', 'Student Intern at Zoho Corp', 'Web Developer', 'Web development', 'Summer Intern At Zoho', 'Smart India Hackathon Winner', 'Array', 'Array', 'volleyball , chess', NULL, NULL, NULL, '', NULL, NULL),
-('1@gmail.com', '123', '1', '2', 1, '2021-05-10 05:26:42', 'default.webp', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('e8ec088@sairamtap.edu.in', '123', 'Jayachandran', 'Ramadoss', 1, '2021-05-12 12:58:56', 'default.webp', NULL, 'male', 'ECE', '', '758482464', 'Chennai', 'Sri Sairam engineering college ', 'student', 'hello it my bio', 'Full Stack Developer', 'Smart India Hackathon Winner', 'won in volleyball championship', 'Array', '', 'Volleyball, Cricket', 'https://github.com/jrjakiro', '', '', '123@gmail.com', '', NULL),
-('jrjakiro2001@gmail.com', '123', 'J', 'R', 0, '2021-05-10 05:09:16', 'default.webp', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
+INSERT INTO `user` (`email`, `password`, `first_name`, `last_name`, `status`, `last_seen`, `profile_image`, `cover_image`, `gender`, `dept`, `dob`, `mobile`, `city`, `institution`, `title`, `bio`, `featured1`, `featured2`, `featured3`, `skill1`, `skill2`, `skill3`, `github`, `linkedin`, `edumate`, `recovery`, `website`, `two-fact-auth`) VALUES
+('sazzy@gmail.com', '111', 'shree', 'sharanyaa', '1', '2022-01-13 16:36:37', 'default.webp', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
 --
 -- Indexes for dumped tables
 --

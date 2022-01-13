@@ -53,7 +53,8 @@
                 <div class="day">27</div>
                 <div class="month">Mar</div>
             </div>
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
+            <img style="width:100%;height:100%;" src="uploads/post/<?= $row['post_image'] ?> ">
+            <!---<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>-->
           </div>
           <!-- Post Content-->
           <div class="post-content">

@@ -73,7 +73,7 @@ if (isset($_POST['send'])) {
 
                                 <div class="account-fullname">
                                     <div class="firstname">
-                                        <label for="firstname">FIRST NAME</label>
+                                        <label for="firstname">NAME</label>
                                         <input type="text" name="name" class="form-control">
                                     </div>
                                     <div class="lastname">
