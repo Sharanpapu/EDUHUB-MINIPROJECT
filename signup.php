@@ -78,8 +78,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 			<button type="button" class="close"
 				data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">×</span>
-			</button>
+      </button>
 		</div> ';
+    require "mail.php";
     header("Location:login.php");
     
 	}
