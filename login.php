@@ -49,8 +49,8 @@
       mysqli_query($conn,$sql2);
       $showAlert = true;
   }  
-  else{  
-    $showError = "Passwords or Username is Incorrect"; 
+ else{  
+   $showError = "Passwords or Username is Incorrect"; 
   }   
   if($num==0)
 {
