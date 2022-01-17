@@ -87,6 +87,15 @@ while ($row = $result->fetch_assoc()) {
 
     <head>
         <meta charset="UTF-8">
+        <script>
+        function validate(){
+           let x = document.forms["myPost"]["post_title"].value;
+           if (x == "") {
+              alert("Title must be filled out");
+              return false;
+         }
+    }
+    </script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
@@ -95,7 +104,7 @@ while ($row = $result->fetch_assoc()) {
             <section id="contact-wrap">
                 <div class="container">
                     <h3><?php echo "$des"; ?></h3>
-                    <form action="newpost.php" method="post" enctype="multipart/form-data">
+                    <form action="newpost.php" method="post" enctype="multipart/form-data" name="myPost" onsubmit="return validate();">
                         <div class="account-container">
                             <div class="account-pic-container">
                                 <img src="images/logo.jpg" />
@@ -109,27 +118,27 @@ while ($row = $result->fetch_assoc()) {
                                 <div class="account-fullname">
                                     <div class="firstname">
                                         <label for="tag1">PRIMARY TAG</label>
-                                        <input type="text" id="tag1" name="tag1" class="form-control">
+                                        <input type="text" id="tag1" name="tag1" class="form-control" required />
                                     </div>
                                     <div class="lastname">
                                         <label for="tag2">SECONDARY TAG</label>
-                                        <input type="text" id="tag2" name="tag2" class="form-control">
+                                        <input type="text" id="tag2" name="tag2" class="form-control" required />
                                     </div>
                                 </div>
                                 <div class="account-fullname">
                                     <div class="firstname">
                                         <label for="mention">MENTION</label>
-                                        <input type="text" id="mention" name="mention" class="form-control">
+                                        <input type="text" id="mention" name="mention" class="form-control" required />
                                     </div>
                                     <div class="lastname">
                                         <label for="url">URL</label>
-                                        <input type="text" id="url" name="url" class="form-control">
+                                        <input type="text" id="url" name="url" class="form-control" required />
                                     </div>
                                 </div>
                                 <div class="account-bio">
                                     <label for="post_description">DESCRIPTION</label>
                                     <textarea id="post_description" cols="30" rows="2" name="post_description"
-                                        class="form-control"></textarea>
+                                        class="form-control" required ></textarea>
                                 </div>
                             </div>
                             <div class="profile_picture">
@@ -163,4 +172,15 @@ while ($row = $result->fetch_assoc()) {
     </script>
 </body>
 
+<!-- function validate(){
+           var  val = document.getElementById("post_description").value;
+                   
+                     if (/^\s*$/g.test(val)) {
+                          alert("Enter your post description");
+                    document.getElementById("post_description").focus();
+                }
+            else {
+                  return True;
+               }
+           } -->
 </html>
