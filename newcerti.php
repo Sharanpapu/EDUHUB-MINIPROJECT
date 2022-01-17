@@ -53,48 +53,7 @@ if (isset($_POST['post'])) {
 	}
 
 }	
-
-//Input fields validation  
-if ($_SERVER["REQUEST_METHOD"] == "POST") 
-{ 
-
-    //String Validation  
-    if (emptyempty($_POST["title"])) 
-    {  
-        $nameErr = "Title is required";  
-    } 
-    else 
-    {  
-       $name = input_data($_POST["title"]);  
-           // check if title only contains letters and whitespace  
-           if (!preg_match("/^[a-zA-Z ]*$/",$name)) {  
-               $nameErr = "Only alphabets and white space are allowed";  
-           }  
-   } 
-   
-   
-   //URL Validation      
-   if (emptyempty($_POST["url"])) 
-   {  
-    $website = "";  
-   } 
-    else 
-    {  
-        $website = input_data($_POST["url"]);  
-        // check if URL address syntax is valid  
-        if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) 
-        {  
-            $websiteErr = "Invalid URL";  
-        }      
-    }  
-}
-
-function input_data($data) {  
-    $data = trim($data);  
-    $data = stripslashes($data);  
-    //$data = htmlspecialchars($data);  
-    return $data;  
-  }  
+ 
 
 //For Retrieval of Page data
 $sql = "SELECT * from page where id='12'";
