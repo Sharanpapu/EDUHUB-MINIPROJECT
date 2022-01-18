@@ -90,10 +90,22 @@ while ($row = $result->fetch_assoc()) {
         <script>
         function validate(){
            let x = document.forms["myPost"]["post_title"].value;
+           
            if (x == "") {
               alert("Title must be filled out");
               return false;
          }
+         let url = document.forms["myPost"]["url"].value;
+         var res = url.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+		    
+             if(res!==null){
+                   return True;
+             }
+             else{
+                alert("Enter a valid url");
+                return false;
+             }
+		 
     }
     </script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
