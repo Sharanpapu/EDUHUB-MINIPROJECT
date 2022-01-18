@@ -144,7 +144,7 @@ while ($row = $result->fetch_assoc()) {
                                     </div>
                                     <div class="lastname">
                                         <label for="url">URL</label>
-                                        <input type="text" id="url" name="url" class="form-control" required />
+                                        <input type="text" id="url" name="url" class="form-control"  required />
                                     </div>
                                 </div>
                                 <div class="account-bio">
