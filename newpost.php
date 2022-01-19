@@ -92,7 +92,7 @@ while ($row = $result->fetch_assoc()) {
            let x = document.forms["myPost"]["post_title"].value;
            
            if (x == "") {
-              alert("Title must be filled out");
+              //alert("Title must be filled out");
               return false;
          }
          let url = document.forms["myPost"]["url"].value;
@@ -102,9 +102,16 @@ while ($row = $result->fetch_assoc()) {
                    return True;
              }
              else{
-                alert("Enter a valid url");
+                //alert("Enter a valid url");
                 return false;
              }
+
+             let description = document.forms["myPost"]["post_description"].value;
+           
+           if (description == "") {
+              alert("Description must be filled out");
+              return false;
+         }
 		 
     }
     </script>
@@ -124,7 +131,7 @@ while ($row = $result->fetch_assoc()) {
                             <div class="account-info-container">
                                 <div class="account-email">
                                     <label for="post_title">TITLE</label>
-                                    <input type="text" id="post_title" name="post_title" class="form-control">
+                                    <input type="text" id="post_title" name="post_title" class="form-control" required>
                                 </div>
 
                                 <div class="account-fullname">
