@@ -183,7 +183,9 @@ require "a.php";
       }
 
       ?>
-      <?php if (count($result2) > 0) {
+      <?php
+      $result2=""; 
+      if (is_countable($result2)&&count($result2) > 0) {
           foreach ($result2 as $a) {
             $query = "SELECT * FROM `user` where email='$a[owner]'";
             $userdata = $conn->query($query);

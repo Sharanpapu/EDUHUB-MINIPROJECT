@@ -81,7 +81,7 @@ if(isset($_POST['passwordupdate']))
 		echo "Error updating record: " . $conn->error;
 	  }}
 // for featured updation
-/*if(isset($_POST['featuredupdate']))
+if(isset($_POST['featuredupdate']))
 {
 
 	$fup="UPDATE `user` set featured1='" . $_POST['featured1'] . "',featured2='" . $_POST['featured2'] . "',featured3='" . $_POST['featured3'] . "' WHERE email='$email'";
@@ -89,7 +89,7 @@ if(isset($_POST['passwordupdate']))
 		echo "Record updated successfully";
 	  } else {
 		echo "Error updating record: " . $conn->error;
-	  }}*/
+	  }}
 //for skill updation
 if(isset($_POST['skillupdate']))
 {

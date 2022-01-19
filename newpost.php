@@ -102,7 +102,7 @@ while ($row = $result->fetch_assoc()) {
                    return True;
              }
              else{
-                //alert("Enter a valid url");
+                alert("Enter a valid url");
                 return false;
              }
 

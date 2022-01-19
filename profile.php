@@ -89,7 +89,7 @@ $ps_data = $conn->query($ps_query);
                             </span>
                         </h4>
                         <a class="fa fa-fw fa-linkedin" href="<?php echo $out['linkedin']; ?>"></a>
-                        <a class="fa fa-fw fa-github" href="<?php echo $out['github']; ?>"></a>
+                        <a class="fa fa-github"href="<?php echo $out['github']; ?>"></a>
                         <a class="fa fa-fw fa-google-plus" href="<?php echo $out['website']; ?>"></a>
                         <a class="fa fa-fw fa-envelope" href="mailto:<?php echo $out['']; ?>?subject=Feedback&body=Message"></a>
                     </div>
@@ -102,22 +102,6 @@ $ps_data = $conn->query($ps_query);
                 <div class="card_about card_about1">
                     <p>
                         <?php echo $out['bio']; ?>
-
-                        A team of Engineers & Professionals joined to support SaiRam Students, Selective alumni
-                        and
-                        Venture to
-                        craft
-                        their quest towards Entrepreneurship by providing an Innovative Ecosystem. This indeed
-                        will
-                        develop them
-                        <strong> into Complete Engineers and Responsible Entrepreneurs.</strong> So, join us to
-                        learn,
-                        explore,
-                        and
-                        expand a community of <strong> entrepreneurs, problem solvers, and Remarkable
-                            leaders.</strong>
-                        we will
-                        support you get there further, faster.
                     </p>
                 </div>
             </div>
