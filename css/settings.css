@@ -47,8 +47,9 @@ body {
 	color: white;
 	padding: 15px 20px;
 	font-size: 16px;
-	border: none;
-	outline: none;
+	margin:5px;
+	border: 2px;
+	outline: 2px;
   }
   
   /* The container <div> - needed to position the dropdown content */
@@ -58,7 +59,7 @@ body {
 	
   }
   .mul-select{
-	width: 800px;
+	width: 700px;
   }
 
   /* Dropdown Content (Hidden by Default) */
@@ -90,7 +91,6 @@ body {
   .btn:hover, .dropdown:hover .btn  {
 	background-color: #007bff;
   }
-  
   
 
 
