@@ -8,14 +8,14 @@ $result = $conn->query($sql);
 while ($row = $result->fetch_assoc()) {
   $title = $row["title"];
 }
+
 if (isset($_POST['send'])) {
-  $sender = $_POST['name'];
-  $sender_title = $_POST['title'];
-  $email = $_POST['email'];
-  $subject = $_POST['subject'];
+  $sender_name = $_POST['name'];
+  $to_email = $_POST['email'];
+  $subject1 = $_POST['subject'];
   $message = $_POST['message'];
-  $sql1 = "INSERT INTO `feedback` (`sender`,`sender_title`,`email`,`subject`, `message`) VALUES ('$sender', 
-    '$sender_title','$email','$subject','$message')";
+  $sql1 = "INSERT INTO `feedback` (`sender`,`email`,`subject`, `message`) VALUES ('$sender_name', 
+    '$to_email','$subject1','$message')";
 
   $result1 = mysqli_query($conn, $sql1);
 }
@@ -41,6 +41,37 @@ if (isset($_POST['send'])) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+        function validate(){
+           
+            let x = document.forms["help"]["email"].value;
+            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            if(reg!==null){
+                   return True;
+             }
+            
+         let y = document.forms["help"]["name"].value;
+         if (y==null || y=="")
+            {  
+                  
+                return false;  
+            }
+         
+
+             let description = document.forms["help"]["subject"].value;
+           
+           if (description ==null || description=="") {
+              
+              return false;
+         }
+         let msg = document.forms["help"]["message"].value;
+           
+           if (msg ==null || msg=="") {
+              
+              return false;
+         }
+    }
+    </script>
     </head>
 
     <body>
@@ -58,7 +89,7 @@ if (isset($_POST['send'])) {
             <section id="contact-wrap">
                 <div class="container">
                     <h3>Drop Us a Line !</h3>
-                    <form action="help.php" method="POST">
+                    <form action="help.php" method="POST" enctype="multipart/form-data" name="help" >
 
                         <div class="account-container">
                             <div class="account-pic-container">
@@ -68,32 +99,32 @@ if (isset($_POST['send'])) {
                             <div class="account-info-container">
                                 <div class="account-email">
                                     <label for="email">EMAIL</label>
-                                    <input type="email" id="email" name="email" class="form-control">
+                                    <input type="email" id="email" name="email" class="form-control" required>
                                 </div>
 
                                 <div class="account-fullname">
                                     <div class="firstname">
                                         <label for="firstname">NAME</label>
-                                        <input type="text" name="name" class="form-control">
+                                        <input type="text" name="name" class="form-control"required>
                                     </div>
                                     <div class="lastname">
-                                        <label for="lastname">TITLE</label>
-                                        <input type="text" id="title" name="title" class="form-control">
+                                       <!--  <label for="lastname">TITLE</label>
+                                        <input type="text" id="title" name="title" class="form-control"> -->
                                     </div>
                                 </div>
                                 <div class="account-username">
                                     <label for="username">TITLE OF MESSAGE</label>
-                                    <input type="text" class="form-control" name='subject'>
+                                    <input type="text" class="form-control" name='subject' required>
                                 </div>
                                 <div class="account-bio">
                                     <label for="bio">MESSAGE</label>
                                     <textarea id="bio" cols="30" rows="2" name="message"
-                                        class="form-control"></textarea>
+                                        class="form-control" required></textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="user-action">
-                            <button name="send">Save</button>
+                            <button name="send" onClick="validate()">Save<?php include('supportmail.php');?></button>
                         </div>
                     </form>
                 </div>
