@@ -115,7 +115,7 @@
                                 Project</a>
                             <a class="nav-link" id="communication-tab" data-toggle="pill" href="#communication"
                                 role="tab" aria-controls="communication" aria-selected="false"><i
-                                    class="fa fa-address-book" aria-hidden="true"></i>Communication</a>
+                                    class="fas fa-address-book" aria-hidden="true"></i>Communication</a>
                             <a class="nav-link" id="post-tab" data-toggle="pill" href="#post" role="tab"
                                 aria-controls="post" aria-selected="false"><i class=" fa fa-bullhorn"></i>Post</a>
                         </div>
